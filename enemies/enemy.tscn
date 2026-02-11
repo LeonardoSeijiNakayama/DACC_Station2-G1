@@ -1,10 +1,15 @@
 [gd_scene format=3 uid="uid://b7c7cmye6aa6n"]
 
+[ext_resource type="Script" uid="uid://cp457626dv20h" path="res://enemies/EnemyMovement.gd" id="1_fw1ev"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x4ssu"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_fw1ev"]
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1836912193]
+
+[node name="Movement" type="Node" parent="." unique_id=21347586]
+script = ExtResource("1_fw1ev")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=99620509]
 shape = SubResource("RectangleShape2D_x4ssu")
