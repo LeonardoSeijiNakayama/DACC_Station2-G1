@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://cis4ucyi6nlme"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_u4by8"]
+size = Vector3(750, 30, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lthgo"]
+size = Vector2(750, 30)
+
+[node name="StaticBody2D" type="StaticBody2D" unique_id=558945616]
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=985448995]
+mesh = SubResource("BoxMesh_u4by8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1613024298]
+shape = SubResource("RectangleShape2D_lthgo")

@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://3bhpfk4dlfol"]
+
+[ext_resource type="PackedScene" uid="uid://cis4ucyi6nlme" path="res://enemies/ground.tscn" id="1_vergw"]
+
+[node name="EnemyTestWorld" type="Node2D" unique_id=1633374563]
+
+[node name="StaticBody2D" parent="." unique_id=558945616 instance=ExtResource("1_vergw")]
+position = Vector2(601, 616)
