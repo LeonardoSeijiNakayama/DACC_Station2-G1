@@ -1,8 +1,25 @@
 extends Node
 
+@onready var _enemy:CharacterBody2D = $".."
+
+var base:StaticBody2D = null
+
+const GRAVITY = -50.0
+const SPEED = 70.0
+
 func _ready() -> void:
-	pass # Replace with function body.
+	base = _enemy.get_parent().get_node("Base")
+	pass
 
 
 func _process(delta: float) -> void:
-	pass
+	if not _enemy.is_on_floor():
+		_enemy.velocity.y -= GRAVITY*delta
+	else:
+		_enemy.velocity.y = 0.0
+		if base:
+			var direction = _enemy.global_position.direction_to(base.global_position)
+			_enemy.velocity = direction*SPEED
+	
+	
+	_enemy.move_and_slide()

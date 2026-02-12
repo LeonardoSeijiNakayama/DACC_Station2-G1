@@ -1,8 +1,23 @@
 [gd_scene format=3 uid="uid://3bhpfk4dlfol"]
 
 [ext_resource type="PackedScene" uid="uid://cis4ucyi6nlme" path="res://enemies/ground.tscn" id="1_vergw"]
+[ext_resource type="PackedScene" uid="uid://b7c7cmye6aa6n" path="res://enemies/enemy.tscn" id="2_c2c7p"]
+[ext_resource type="PackedScene" uid="uid://gjqqg7du5gjf" path="res://enemies/base_test.tscn" id="3_cw4r5"]
 
 [node name="EnemyTestWorld" type="Node2D" unique_id=1633374563]
 
 [node name="StaticBody2D" parent="." unique_id=558945616 instance=ExtResource("1_vergw")]
 position = Vector2(601, 616)
+
+[node name="CharacterBody2D" parent="." unique_id=1836912193 instance=ExtResource("2_c2c7p")]
+position = Vector2(614, 490)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1803196305]
+position = Vector2(583, 329)
+limit_left = 0
+limit_top = 0
+limit_right = 1152
+limit_bottom = 648
+
+[node name="Base" parent="." unique_id=1106712333 instance=ExtResource("3_cw4r5")]
+position = Vector2(396, 576)
