@@ -33,11 +33,10 @@ scale = Vector2(20, 20)
 mesh = SubResource("BoxMesh_fw1ev")
 
 [node name="HealthBar" type="ProgressBar" parent="." unique_id=2100439985]
-visible = false
-offset_left = -62.0
-offset_top = -40.0
-offset_right = 62.0
-offset_bottom = -13.0
+offset_left = -32.0
+offset_top = -42.0
+offset_right = 32.0
+offset_bottom = -15.0
 
 [node name="AttackArea" type="Area2D" parent="." unique_id=1959887696]
 

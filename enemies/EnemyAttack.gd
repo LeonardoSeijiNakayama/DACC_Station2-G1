@@ -44,5 +44,5 @@ func _on_attack_timer_timeout() -> void:
 func attack()->void:
 	var base_health:BaseHealth = base_ref.get_node("Health")
 	if base_health:
-		base_health.take_damage(50.0)
+		base_health.take_damage(2.0)
 	pass
