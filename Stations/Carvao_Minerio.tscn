@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://c17lqs7k4fdnm"]
+
+[ext_resource type="Texture2D" uid="uid://broq5vvmjixbx" path="res://icon.svg" id="1_i2di6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_i2di6"]
+
+[node name="RigidBody2D" type="RigidBody2D" unique_id=1380866705]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2081501536]
+shape = SubResource("CircleShape2D_i2di6")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1769787900]
+modulate = Color(0.3137255, 0.21176471, 0.22745098, 1)
+scale = Vector2(0.09375, 0.09375)
+texture = ExtResource("1_i2di6")
