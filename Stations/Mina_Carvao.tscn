@@ -1,27 +1,31 @@
 [gd_scene format=3 uid="uid://btoppmhcvd8gt"]
 
 [ext_resource type="Script" uid="uid://b2iuw050uu7au" path="res://Stations/Mina.gd" id="1_sjtkc"]
-[ext_resource type="Texture2D" uid="uid://broq5vvmjixbx" path="res://icon.svg" id="2_1s17v"]
+[ext_resource type="Texture2D" uid="uid://b838ajr8n2jdm" path="res://Stations/placeholders/mina_carvao_ph.png" id="2_nmsii"]
+[ext_resource type="Texture2D" uid="uid://cdr34el57trl6" path="res://Stations/placeholders/enter_button_ph.png" id="3_1s17v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nmsii"]
-size = Vector2(130, 128)
+size = Vector2(76, 55)
 
 [node name="MinaCarvao" type="Node2D" unique_id=2038531751]
-position = Vector2(558, 448)
+position = Vector2(593, 485)
 script = ExtResource("1_sjtkc")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=2101333416]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=407316958]
+position = Vector2(0, -10.5)
 shape = SubResource("RectangleShape2D_nmsii")
 
 [node name="Mina_Spr" type="Sprite2D" parent="Area2D" unique_id=785450030]
-texture = ExtResource("2_1s17v")
+position = Vector2(0, -21)
+scale = Vector2(2.375, 2.375)
+texture = ExtResource("2_nmsii")
 
 [node name="Botao_Spr" type="Sprite2D" parent="." unique_id=311418721]
-position = Vector2(0, -93)
-scale = Vector2(0.3515625, 0.3515625)
-texture = ExtResource("2_1s17v")
+position = Vector2(-1.4305115e-06, -90)
+scale = Vector2(2.3750002, 2.3750002)
+texture = ExtResource("3_1s17v")
 
 [node name="Producao_Timer" type="Timer" parent="." unique_id=1362396254]
 one_shot = true
