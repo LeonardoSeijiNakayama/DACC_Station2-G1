@@ -1,19 +1,50 @@
 [gd_scene format=3 uid="uid://b7c7cmye6aa6n"]
 
 [ext_resource type="Script" uid="uid://cp457626dv20h" path="res://enemies/EnemyMovement.gd" id="1_fw1ev"]
+[ext_resource type="Script" uid="uid://ddoegomymose1" path="res://enemies/EnemyHealth.gd" id="2_7frlh"]
+[ext_resource type="Script" uid="uid://b16gdauwql6ti" path="res://enemies/EnemyAttack.gd" id="3_orwns"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x4ssu"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_fw1ev"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_orwns"]
+size = Vector2(11, 20)
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1836912193]
 
 [node name="Movement" type="Node" parent="." unique_id=21347586]
 script = ExtResource("1_fw1ev")
 
+[node name="Health" type="Node" parent="." unique_id=1044124887]
+script = ExtResource("2_7frlh")
+
+[node name="Attack" type="Node" parent="." unique_id=162436927]
+script = ExtResource("3_orwns")
+
+[node name="AttackTimer" type="Timer" parent="Attack" unique_id=285648390]
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=99620509]
 shape = SubResource("RectangleShape2D_x4ssu")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=732159913]
+position = Vector2(9.536743e-07, 5.9604645e-08)
 scale = Vector2(20, 20)
 mesh = SubResource("BoxMesh_fw1ev")
+
+[node name="HealthBar" type="ProgressBar" parent="." unique_id=2100439985]
+visible = false
+offset_left = -62.0
+offset_top = -40.0
+offset_right = 62.0
+offset_bottom = -13.0
+
+[node name="AttackArea" type="Area2D" parent="." unique_id=1959887696]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea" unique_id=1048667908]
+position = Vector2(15.5, 0)
+shape = SubResource("RectangleShape2D_orwns")
+
+[connection signal="timeout" from="Attack/AttackTimer" to="Attack" method="_on_attack_timer_timeout"]
+[connection signal="body_entered" from="AttackArea" to="Attack" method="_on_attack_area_body_entered"]
+[connection signal="body_exited" from="AttackArea" to="Attack" method="_on_attack_area_body_exited"]

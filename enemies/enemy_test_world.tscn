@@ -20,4 +20,4 @@ limit_right = 1152
 limit_bottom = 648
 
 [node name="Base" parent="." unique_id=1106712333 instance=ExtResource("3_cw4r5")]
-position = Vector2(396, 576)
+position = Vector2(746, 577)

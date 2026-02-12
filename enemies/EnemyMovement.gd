@@ -1,4 +1,5 @@
 extends Node
+class_name EnemyMovement
 
 @onready var _enemy:CharacterBody2D = $".."
 
