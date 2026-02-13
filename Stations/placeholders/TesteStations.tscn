@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://d1vg6gdn5xgol"]
+
+[ext_resource type="Texture2D" uid="uid://b50bmvt4h1vfc" path="res://Stations/placeholders/white_wall_ph.png" id="1_4uf6t"]
+[ext_resource type="PackedScene" path="res://Stations/Mina.tscn" id="2_ml3hp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ml3hp"]
+size = Vector2(16, 16)
+
+[node name="TesteStations" type="Node2D" unique_id=697346324]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1717066058]
+position = Vector2(279, 166)
+scale = Vector2(75.885, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1845428040]
+shape = SubResource("RectangleShape2D_ml3hp")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=979270388]
+texture = ExtResource("1_4uf6t")
+
+[node name="MinaCarvao" parent="." unique_id=2038531751 instance=ExtResource("2_ml3hp")]
+position = Vector2(444, 142)
+
+[node name="MinaFerro" parent="." unique_id=1199139156 instance=ExtResource("2_ml3hp")]
+position = Vector2(161, 141)
+type = 1

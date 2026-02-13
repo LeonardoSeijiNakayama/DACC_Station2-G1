@@ -2,19 +2,27 @@
 
 extends Node2D
 
-@onready var sprMina = $Mina_Spr
+@onready var sprMina = $Area2D.get_child(1)
 @onready var sprBotao = $Botao_Spr
 @onready var area = $Area2D
 @onready var timer = $Producao_Timer
 @onready var label = $Produzindo_Label
-var carvao = load("res://Stations/Carvao_Minerio.tscn")
+
+@export_enum("Carvao", "Ferro") var type: int
 
 var in_range = false
-
+var ore
+var station
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	if type == 0:
+		ore = load("res://Stations/Carvao_Minerio.tscn")
+		station = load("res://Stations/placeholders/mina_carvao_ph.png")
+	else:
+		ore = load("res://Stations/Ferro_Minerio.tscn")
+		station = load("res://Stations/placeholders/mina_ferro_ph.png")
 
+	sprMina.texture = station
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -43,6 +51,9 @@ func _on_area_2d_mouse_exited() -> void:
 		timer.stop()
 
 func _on_producao_timer_timeout() -> void:
-	add_child(carvao.instantiate())
+	var new_ore = ore.instantiate()
+	new_ore.position = Vector2(position.x, position.y - 20)
+	new_ore.rotation = [-3, -2 -1, 0, 1, 2, 3].pick_random()
+	get_parent().add_child(new_ore)
 	label.visible = false
 	print("Pronto!")
