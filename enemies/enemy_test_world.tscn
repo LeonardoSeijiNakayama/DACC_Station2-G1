@@ -23,9 +23,5 @@ position = Vector2(405, 582)
 position = Vector2(745, 584)
 
 [node name="SpawnArea2" parent="." unique_id=612631048 instance=ExtResource("3_ovyau")]
-position = Vector2(107, 609)
+position = Vector2(8, 609)
 quantity = 3
-
-[node name="SpawnArea" parent="." unique_id=283799282 instance=ExtResource("3_ovyau")]
-position = Vector2(1041, 608)
-target = "Base2"

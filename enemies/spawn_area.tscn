@@ -4,10 +4,10 @@
 [ext_resource type="Script" uid="uid://bcydr71mfewob" path="res://enemies/SpawnEnemies.gd" id="1_tt2dt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3wmkr"]
-size = Vector2(200, 1)
+size = Vector2(1, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7wuls"]
-size = Vector2(200, 1)
+size = Vector2(1, 1)
 
 [node name="SpawnArea" type="Area2D" unique_id=283799282]
 script = ExtResource("1_7wuls")
@@ -19,5 +19,5 @@ script = ExtResource("1_tt2dt")
 shape = SubResource("RectangleShape2D_3wmkr")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=1539546269]
-position = Vector2(0, -3)
+position = Vector2(0, -16)
 shape = SubResource("RectangleShape2D_7wuls")

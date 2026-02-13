@@ -8,10 +8,12 @@ class_name EnemyMovement
 @onready var _ranged_attack_area:Area2D = $"../AttackAreaRanged"
 @onready var _attack:EnemyAttack = $"../Attack"
 @onready var _collision:CollisionShape2D = $"../CollisionShape2D"
+@onready var _stop_raycast:RayCast2D = $"../StopRaycast"
 
 var base:StaticBody2D = null
 var target = "Base"
 var timer = 6.0
+var stopped = false
 
 const SPEED = 70.0
 
@@ -28,12 +30,21 @@ func _process(delta: float) -> void:
 	if timer<=0.0:
 		_enemy.queue_free()
 	
+	if _stop_raycast.is_colliding() and _attack.type == 2:
+		var area = _stop_raycast.get_collider()
+		if area and area.is_in_group("Enemy"):
+			stopped = true
+		else: 
+			stopped = false
+	else:
+		stopped = false
+	
 	var direction
 	_enemy.velocity.y = 0.0
-	if base and not _attack.base_in_range:
+	if base:
 		direction = _enemy.global_position.direction_to(base.global_position)
 		_enemy.velocity = direction*SPEED
-	if _attack.base_in_range:
+	if _attack.base_in_range or stopped:
 		_enemy.velocity = Vector2(0.0,_enemy.velocity.y)
 	
 	_enemy.velocity.y = 0.0
