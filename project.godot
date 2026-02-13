@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Jogo1DaccStation"
-run/main_scene="res://teste_player.tscn"
+run/main_scene="uid://btoppmhcvd8gt"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -53,4 +53,5 @@ Dash={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
