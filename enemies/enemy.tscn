@@ -5,11 +5,15 @@
 [ext_resource type="Script" uid="uid://b16gdauwql6ti" path="res://enemies/EnemyAttack.gd" id="3_orwns"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x4ssu"]
+size = Vector2(16, 16)
 
 [sub_resource type="BoxMesh" id="BoxMesh_fw1ev"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_orwns"]
-size = Vector2(11, 20)
+size = Vector2(11, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a6vjd"]
+size = Vector2(180, 16)
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1836912193]
 
@@ -22,7 +26,9 @@ script = ExtResource("2_7frlh")
 [node name="Attack" type="Node" parent="." unique_id=162436927]
 script = ExtResource("3_orwns")
 
-[node name="AttackTimer" type="Timer" parent="Attack" unique_id=285648390]
+[node name="MeleeAttackTimer" type="Timer" parent="Attack" unique_id=285648390]
+
+[node name="RangedAttackTimer" type="Timer" parent="Attack" unique_id=162326861]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=99620509]
 shape = SubResource("RectangleShape2D_x4ssu")
@@ -38,12 +44,21 @@ offset_top = -42.0
 offset_right = 32.0
 offset_bottom = -15.0
 
-[node name="AttackArea" type="Area2D" parent="." unique_id=1959887696]
+[node name="AttackAreaMelee" type="Area2D" parent="." unique_id=1959887696]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea" unique_id=1048667908]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackAreaMelee" unique_id=1048667908]
 position = Vector2(15.5, 0)
 shape = SubResource("RectangleShape2D_orwns")
 
-[connection signal="timeout" from="Attack/AttackTimer" to="Attack" method="_on_attack_timer_timeout"]
-[connection signal="body_entered" from="AttackArea" to="Attack" method="_on_attack_area_body_entered"]
-[connection signal="body_exited" from="AttackArea" to="Attack" method="_on_attack_area_body_exited"]
+[node name="AttackAreaRanged" type="Area2D" parent="." unique_id=1138318296]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackAreaRanged" unique_id=264125210]
+position = Vector2(100, 0)
+shape = SubResource("RectangleShape2D_a6vjd")
+
+[connection signal="timeout" from="Attack/MeleeAttackTimer" to="Attack" method="_on_attack_timer_timeout"]
+[connection signal="timeout" from="Attack/RangedAttackTimer" to="Attack" method="_on_ranged_attack_timer_timeout"]
+[connection signal="body_entered" from="AttackAreaMelee" to="Attack" method="_on_attack_area_body_entered"]
+[connection signal="body_exited" from="AttackAreaMelee" to="Attack" method="_on_attack_area_body_exited"]
+[connection signal="body_entered" from="AttackAreaRanged" to="Attack" method="_on_attack_area_ranged_body_entered"]
+[connection signal="body_exited" from="AttackAreaRanged" to="Attack" method="_on_attack_area_ranged_body_exited"]

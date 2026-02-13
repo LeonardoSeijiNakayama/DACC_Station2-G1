@@ -7,7 +7,7 @@
 [node name="EnemyTestWorld" type="Node2D" unique_id=1633374563]
 
 [node name="StaticBody2D" parent="." unique_id=558945616 instance=ExtResource("1_vergw")]
-position = Vector2(601, 616)
+position = Vector2(574, 623)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1803196305]
 position = Vector2(583, 329)
@@ -16,11 +16,16 @@ limit_top = 0
 limit_right = 1152
 limit_bottom = 648
 
-[node name="Base" parent="." unique_id=1106712333 instance=ExtResource("3_cw4r5")]
-position = Vector2(602, 577)
+[node name="Base1" parent="." unique_id=1106712333 instance=ExtResource("3_cw4r5")]
+position = Vector2(405, 582)
 
-[node name="SpawnArea" parent="." unique_id=283799282 instance=ExtResource("3_ovyau")]
-position = Vector2(873, 588)
+[node name="Base2" parent="." unique_id=440686924 instance=ExtResource("3_cw4r5")]
+position = Vector2(745, 584)
 
 [node name="SpawnArea2" parent="." unique_id=612631048 instance=ExtResource("3_ovyau")]
-position = Vector2(352, 589)
+position = Vector2(107, 609)
+quantity = 3
+
+[node name="SpawnArea" parent="." unique_id=283799282 instance=ExtResource("3_ovyau")]
+position = Vector2(1041, 608)
+target = "Base2"
