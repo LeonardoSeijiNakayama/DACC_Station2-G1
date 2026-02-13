@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://blstbsswfcii2"]
+
+[ext_resource type="PackedScene" uid="uid://cekex40d5qa86" path="res://player.tscn" id="1_7w86a"]
+[ext_resource type="Texture2D" uid="uid://broq5vvmjixbx" path="res://icon.svg" id="2_s2wow"]
+[ext_resource type="PackedScene" uid="uid://bxobvq4teghip" path="res://Escadas.tscn" id="3_b68p4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7w86a"]
+size = Vector2(1167, 25)
+
+[node name="Node2D" type="Node2D" unique_id=1225543474]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=59266916]
+position = Vector2(579, 617)
+collision_layer = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=595338503]
+position = Vector2(-8.5, 0)
+scale = Vector2(9.0703125, 0.2)
+texture = ExtResource("2_s2wow")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1296656185]
+position = Vector2(-10.5, 0.5)
+shape = SubResource("RectangleShape2D_7w86a")
+
+[node name="Escada" parent="." unique_id=131704939 instance=ExtResource("3_b68p4")]
+position = Vector2(861, 420)
+
+[node name="player" parent="." unique_id=152186675 instance=ExtResource("1_7w86a")]
+position = Vector2(566, 563)
+collision_mask = 7
+
+[connection signal="body_entered" from="Escada" to="player" method="_on_escada_body_entered"]
+[connection signal="body_exited" from="Escada" to="player" method="_on_escada_body_exited"]
