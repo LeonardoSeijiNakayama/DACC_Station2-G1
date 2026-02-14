@@ -9,10 +9,13 @@ class_name EnemyMovement
 @onready var _attack:EnemyAttack = $"../Attack"
 @onready var _collision:CollisionShape2D = $"../CollisionShape2D"
 @onready var _stop_raycast:RayCast2D = $"../StopRaycast"
+@onready var _ranged_stop_area:Area2D = $"../RangedStopArea"
 
 var base:StaticBody2D = null
 var target = "Base"
-var timer = 6.0
+var timer = 10.0
+var stopped_raycast = false
+var stopped_area = false
 var stopped = false
 
 const SPEED = 70.0
@@ -30,21 +33,16 @@ func _process(delta: float) -> void:
 	if timer<=0.0:
 		_enemy.queue_free()
 	
-	if _stop_raycast.is_colliding() and _attack.type == 2:
-		var area = _stop_raycast.get_collider()
-		if area and area.is_in_group("Enemy"):
-			stopped = true
-		else: 
-			stopped = false
-	else:
-		stopped = false
+	stopped_raycast = _attack.type == 2 and _stop_raycast.is_colliding()
+	
+	stopped = stopped_raycast or stopped_area
 	
 	var direction
 	_enemy.velocity.y = 0.0
 	if base:
 		direction = _enemy.global_position.direction_to(base.global_position)
 		_enemy.velocity = direction*SPEED
-	if _attack.base_in_range or stopped:
+	if stopped:
 		_enemy.velocity = Vector2(0.0,_enemy.velocity.y)
 	
 	_enemy.velocity.y = 0.0
@@ -57,3 +55,15 @@ func _process(delta: float) -> void:
 			_ranged_attack_area.position.x = -200.0
 		elif direction.x > 0:
 			_melee_attack_area.position.x = 0.0
+
+
+func _on_ranged_stop_area_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Base"):
+		if _attack.type == 2:
+			stopped_area = true
+
+
+func _on_ranged_stop_area_body_exited(body: Node2D) -> void:
+	if body.is_in_group("Base"):
+		if _attack.type == 2:
+			stopped_area = false

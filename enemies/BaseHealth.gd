@@ -1,7 +1,7 @@
 extends Node
 class_name BaseHealth
 
-@export var MAXIMUM_HEALTH = 1000000.0
+@export var MAXIMUM_HEALTH = 100.0
 @export var CURRENT_HEALTH = MAXIMUM_HEALTH
 @onready var _health_bar:ProgressBar = $"../HealthBar"
 @onready var _base:StaticBody2D = $".."
