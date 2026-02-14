@@ -69,9 +69,7 @@ func _on_timer_timeout() -> void:
 
 func _on_escada_body_entered(body: Node2D) -> void:
 	esta_na_escada = true 
-	print("Entrou na escada")
 
 
 func _on_escada_body_exited(body: Node2D) -> void:
 	esta_na_escada = false
-	print("saiu da escada")
