@@ -7,8 +7,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nmsii"]
 size = Vector2(32, 19)
 
-[node name="MinaCarvao" type="Node2D" unique_id=2038531751]
-position = Vector2(566, 410)
+[node name="Mina" type="Node2D" unique_id=2038531751]
 script = ExtResource("1_sjtkc")
 
 [node name="Area_Mina" type="Area2D" parent="." unique_id=2101333416]

@@ -9,13 +9,15 @@ var IS_DASHING = false
 var esta_na_escada = false
 var escalando = false
 
-#Segura Itens
-@onready var area = $Area_Player
-var can_hold = false
-@export var holding = false
-@export var item_hold_id: Node
-var item_nexto = ""
+
+# VARIAVEIS DE SEGURAR ITENS #
+@onready var area = $Area_Player # Area para detectar itens coletaveis
+var can_hold = false # Verificar se pode ou nao pegar itens
+@export var holding = false # Verificar se esta ou nao segurando um item
+@export var item_hold_id: Node # No do item que esta segurando 
+# Lista de Itens que pode segurar (Nome se refere as Areas de atuacao desses itens)
 const itens_grupo = ["Area_Carvao", "Area_Ferro", "Area_Bola", "Area_Ferro_Prod"]
+
 
 func _physics_process(delta: float) -> void:
 	# Adiciona a gravidade
@@ -69,31 +71,33 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 
-	# Segurar Itens			
-	match holding:
-		true:
-			item_hold_id.position.x = position.x
-			item_hold_id.position.y = position.y - 30
-			if Input.is_action_just_pressed("ui_accept"):
-				item_hold_id.freeze = false
-				item_hold_id = null
-				holding = false
+	# MECANIMA DE SEGURAR ITENS
+	match holding: # State Machine que varia entre Segurando ou Nao Segurando
+		true: # Se estiver segurando
+			# a posicao do item ficara relacionada a posicao do player
+			item_hold_id.position.x = Vector2(position.x, position.y - 30)
+			if Input.is_action_just_pressed("ui_accept"): # Se apertar a tecla [Enter]
+				item_hold_id.freeze = false # Item descongela
+				item_hold_id = null # esquece o no do item
+				holding = false # muda de estado para "Nao segurando"
 				
-		false:
+		false: # Se Nao estiver segurando
+			# Verifica se tem Area2D na area de atuacao
 			if area.has_overlapping_areas():
 				for item in area.get_overlapping_areas():
-					if item.name in itens_grupo:
-						can_hold = true
-						item_hold_id = item.get_parent()
-			else:
+					# Se tiver e um deles for um item coletavel
+					if item.name in itens_grupo: 
+						can_hold = true # Permite que segure um item
+						item_hold_id = item.get_parent() # pega o no de um dos itens
+			else: # Se nao tiver itens na area de atuacao, impede que segure um item
 				can_hold = false
 						
-			if can_hold:
-				if Input.is_action_just_pressed("ui_accept"):
-					item_hold_id.rotation = 0
-					item_hold_id.freeze = true
-					holding = true
-					can_hold = false
+			if can_hold: # Se ele pode segurar um item
+				if Input.is_action_just_pressed("ui_accept"): # se apertar a tecla [Enter]
+					item_hold_id.rotation = 0 # define a rotacao do item para 0
+					item_hold_id.freeze = true # congela o item
+					can_hold = false # Impede de pegar outro item
+					holding = true # muda para estado de "Segurando"
 
 func _on_timer_timeout() -> void:
 	IS_DASHING = false
@@ -105,16 +109,3 @@ func _on_escada_body_entered(body: Node2D) -> void:
 
 func _on_escada_body_exited(body: Node2D) -> void:
 	esta_na_escada = false
-
-func _on_area_2d_area_entered(area: Area2D) -> void:
-	#if area.name == "Area_Carvao" or area.name == "Area_Ferro" and !holding:
-	#		can_hold = true
-	#		item_hold_id = area.get_parent()
-	#		print("poode segurar")
-	pass
-
-func _on_area_player_area_exited(area: Area2D) -> void:
-	#if area.name == "Area_Carvao" or area.name == "Area_Ferro" and !holding:
-	#	can_hold = false
-	#	print("nao pode segurar")
-	pass

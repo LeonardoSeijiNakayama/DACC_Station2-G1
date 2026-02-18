@@ -10,13 +10,13 @@
 z_index = -1
 script = ExtResource("1_673f4")
 
-[node name="Area_Fornalha" type="Area2D" parent="." unique_id=1304230538]
+[node name="Area_Station" type="Area2D" parent="." unique_id=1304230538]
 collision_layer = 16
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area_Fornalha" unique_id=624801619]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area_Station" unique_id=624801619]
 shape = SubResource("RectangleShape2D_673f4")
 
-[node name="Fornalha_Spr" type="Sprite2D" parent="Area_Fornalha" unique_id=1497705336]
+[node name="Station_Spr" type="Sprite2D" parent="Area_Station" unique_id=1497705336]
 texture = ExtResource("2_m1qa0")
 
 [node name="Botao_Spr" type="Sprite2D" parent="." unique_id=1705063989]
@@ -36,6 +36,6 @@ text = "Produzindo..."
 wait_time = 2.0
 one_shot = true
 
-[connection signal="body_entered" from="Area_Fornalha" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Area_Fornalha" to="." method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="Area_Station" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area_Station" to="." method="_on_area_2d_body_exited"]
 [connection signal="timeout" from="Producao_Timer" to="." method="_on_producao_timer_timeout"]
