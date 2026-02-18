@@ -9,9 +9,11 @@ var IS_DASHING = false
 var esta_na_escada = false
 var escalando = false
 
+@onready var area = $Area_Player
 var can_hold = false
 var holding = false
 var item_hold_id = ""
+var item_nexto = ""
 
 func _physics_process(delta: float) -> void:
 	# Adiciona a gravidade
@@ -65,21 +67,29 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 
-	# Segurar Itens	
+	# Segurar Itens			
 	match holding:
 		true:
 			item_hold_id.position.x = position.x
 			item_hold_id.position.y = position.y - 30
 			if Input.is_action_just_pressed("ui_accept"):
 				item_hold_id.freeze = false
+				item_hold_id = ""
 				holding = false
+				
 		false:
+			if area.has_overlapping_areas():
+				for item in area.get_overlapping_areas():
+					if item.name == "Area_Carvao" or item.name == "Area_Ferro":
+						can_hold = true
+						item_hold_id = item.get_parent()
+						
 			if can_hold:
 				if Input.is_action_just_pressed("ui_accept"):
 					item_hold_id.rotation = 0
 					item_hold_id.freeze = true
 					holding = true
-	
+					can_hold = false
 
 func _on_timer_timeout() -> void:
 	IS_DASHING = false
@@ -93,10 +103,14 @@ func _on_escada_body_exited(body: Node2D) -> void:
 	esta_na_escada = false
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
-	if area.name == "Area_Carvao" or area.name == "Area_Ferro" and !holding:
-			can_hold = true
-			item_hold_id = area.get_parent()
+	#if area.name == "Area_Carvao" or area.name == "Area_Ferro" and !holding:
+	#		can_hold = true
+	#		item_hold_id = area.get_parent()
+	#		print("poode segurar")
+	pass
 
 func _on_area_player_area_exited(area: Area2D) -> void:
-	if area.name == "Area_Carvao" or area.name == "Area_Ferro" and !holding:
-		can_hold = false
+	#if area.name == "Area_Carvao" or area.name == "Area_Ferro" and !holding:
+	#	can_hold = false
+	#	print("nao pode segurar")
+	pass
