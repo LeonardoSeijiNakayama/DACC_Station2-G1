@@ -37,6 +37,7 @@ func _process(delta: float) -> void:
 				label.visible = false
 				sprBotao.visible = true
 				timer.stop()
+				
 # Quando mouse entra na area da mina, aparece um botao que ele precisa apertar
 func _on_area_2d_mouse_entered() -> void:
 	in_range = true
@@ -57,3 +58,17 @@ func _on_producao_timer_timeout() -> void:
 	get_parent().add_child(new_ore)
 	label.visible = false
 	print("Pronto!")
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.name == "player":
+		in_range = true
+		sprBotao.visible = true
+
+func _on_area_2d_body_exited(body: Node2D) -> void:
+	if body.name == "player":
+		sprBotao.visible = false
+		label.visible = false
+		in_range = false
+		if !timer.is_stopped():
+			timer.stop()

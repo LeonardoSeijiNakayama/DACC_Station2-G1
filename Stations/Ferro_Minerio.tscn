@@ -9,6 +9,8 @@ height = 18.0
 [node name="Ferro" type="RigidBody2D" unique_id=1380866705]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2081501536]
+light_mask = 4
+visibility_layer = 7
 shape = SubResource("CapsuleShape2D_77ily")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1769787900]

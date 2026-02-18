@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://d1vg6gdn5xgol"]
 
 [ext_resource type="Texture2D" uid="uid://b50bmvt4h1vfc" path="res://Stations/placeholders/white_wall_ph.png" id="1_4uf6t"]
-[ext_resource type="PackedScene" path="res://Stations/Mina.tscn" id="2_ml3hp"]
+[ext_resource type="PackedScene" uid="uid://btoppmhcvd8gt" path="res://Stations/Mina.tscn" id="2_ml3hp"]
+[ext_resource type="PackedScene" uid="uid://duep6t45g3ar7" path="res://Stations/Fornalha.tscn" id="3_2ib5e"]
+[ext_resource type="PackedScene" uid="uid://cekex40d5qa86" path="res://player.tscn" id="4_80hx1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ml3hp"]
 size = Vector2(16, 16)
@@ -24,3 +26,9 @@ position = Vector2(444, 142)
 [node name="MinaFerro" parent="." unique_id=1199139156 instance=ExtResource("2_ml3hp")]
 position = Vector2(161, 141)
 type = 1
+
+[node name="Fornalha" parent="." unique_id=999989629 instance=ExtResource("3_2ib5e")]
+position = Vector2(289, 125)
+
+[node name="player" parent="." unique_id=152186675 instance=ExtResource("4_80hx1")]
+position = Vector2(55, 116)
