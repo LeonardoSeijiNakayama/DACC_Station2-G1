@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://benhvncsq5nbi"]
+
+[ext_resource type="Texture2D" uid="uid://c16bdemr51cut" path="res://Stations/placeholders/bola_ph.png" id="1_voreh"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k6557"]
+radius = 8.0
+height = 18.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y7nhy"]
+size = Vector2(17, 19.5)
+
+[node name="Bola" type="RigidBody2D" unique_id=1892637131]
+collision_layer = 8
+collision_mask = 12
+gravity_scale = 0.4
+freeze_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1424631858]
+shape = SubResource("CapsuleShape2D_k6557")
+debug_color = Color(0, 0.5743197, 0.8297416, 0.41960785)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=890628421]
+texture = ExtResource("1_voreh")
+
+[node name="Area_Bola" type="Area2D" parent="." unique_id=1470044968]
+collision_layer = 8
+collision_mask = 13
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area_Bola" unique_id=1496786681]
+shape = SubResource("RectangleShape2D_y7nhy")
+debug_color = Color(0.8162477, 0.23507977, 0.8199194, 0.41960785)

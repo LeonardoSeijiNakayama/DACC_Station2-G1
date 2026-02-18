@@ -1,22 +1,23 @@
 [gd_scene format=3 uid="uid://duep6t45g3ar7"]
 
-[ext_resource type="Script" uid="uid://dttw7wfa7hbbh" path="res://Stations/Fornalha.gd" id="1_673f4"]
-[ext_resource type="Texture2D" uid="uid://broq5vvmjixbx" path="res://icon.svg" id="1_j8er0"]
+[ext_resource type="Script" uid="uid://dttw7wfa7hbbh" path="res://Stations/Stations.gd" id="1_673f4"]
+[ext_resource type="Texture2D" uid="uid://csf1w7h2ksou" path="res://Stations/placeholders/fornalaha_ph.png" id="2_m1qa0"]
 [ext_resource type="Texture2D" uid="uid://cdr34el57trl6" path="res://Stations/placeholders/enter_button_ph.png" id="3_m1qa0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_673f4"]
 
-[node name="Fornalha" type="Node2D" unique_id=999989629]
+[node name="Station" type="Node2D" unique_id=999989629]
+z_index = -1
 script = ExtResource("1_673f4")
 
 [node name="Area_Fornalha" type="Area2D" parent="." unique_id=1304230538]
+collision_layer = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area_Fornalha" unique_id=624801619]
 shape = SubResource("RectangleShape2D_673f4")
 
 [node name="Fornalha_Spr" type="Sprite2D" parent="Area_Fornalha" unique_id=1497705336]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_j8er0")
+texture = ExtResource("2_m1qa0")
 
 [node name="Botao_Spr" type="Sprite2D" parent="." unique_id=1705063989]
 visible = false
@@ -31,5 +32,10 @@ offset_right = 55.0
 offset_bottom = -36.0
 text = "Produzindo..."
 
+[node name="Producao_Timer" type="Timer" parent="." unique_id=2121763740]
+wait_time = 2.0
+one_shot = true
+
 [connection signal="body_entered" from="Area_Fornalha" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area_Fornalha" to="." method="_on_area_2d_body_exited"]
+[connection signal="timeout" from="Producao_Timer" to="." method="_on_producao_timer_timeout"]

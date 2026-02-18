@@ -9,11 +9,13 @@ var IS_DASHING = false
 var esta_na_escada = false
 var escalando = false
 
+#Segura Itens
 @onready var area = $Area_Player
 var can_hold = false
-var holding = false
-var item_hold_id = ""
+@export var holding = false
+@export var item_hold_id: Node
 var item_nexto = ""
+const itens_grupo = ["Area_Carvao", "Area_Ferro", "Area_Bola", "Area_Ferro_Prod"]
 
 func _physics_process(delta: float) -> void:
 	# Adiciona a gravidade
@@ -74,15 +76,17 @@ func _physics_process(delta: float) -> void:
 			item_hold_id.position.y = position.y - 30
 			if Input.is_action_just_pressed("ui_accept"):
 				item_hold_id.freeze = false
-				item_hold_id = ""
+				item_hold_id = null
 				holding = false
 				
 		false:
 			if area.has_overlapping_areas():
 				for item in area.get_overlapping_areas():
-					if item.name == "Area_Carvao" or item.name == "Area_Ferro":
+					if item.name in itens_grupo:
 						can_hold = true
 						item_hold_id = item.get_parent()
+			else:
+				can_hold = false
 						
 			if can_hold:
 				if Input.is_action_just_pressed("ui_accept"):
