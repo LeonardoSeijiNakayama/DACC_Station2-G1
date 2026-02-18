@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://cjqka32qr850w"]
+
+[ext_resource type="Texture2D" uid="uid://dn46xbxlmh2m7" path="res://Stations/placeholders/ferro_produzido.png" id="1_0mhql"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0mhql"]
+radius = 7.0
+height = 18.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5mgim"]
+size = Vector2(17, 19.5)
+
+[node name="Ferro_Prod" type="RigidBody2D" unique_id=488153740]
+collision_layer = 8
+collision_mask = 12
+gravity_scale = 0.4
+freeze_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1248933643]
+shape = SubResource("CapsuleShape2D_0mhql")
+debug_color = Color(0, 0.5743197, 0.8297416, 0.41960785)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1171303840]
+texture = ExtResource("1_0mhql")
+
+[node name="Area_Ferro_Prod" type="Area2D" parent="." unique_id=450295636]
+position = Vector2(1, 0)
+collision_layer = 8
+collision_mask = 13
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area_Ferro_Prod" unique_id=657329968]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_5mgim")
+debug_color = Color(0.8162477, 0.23507977, 0.8199194, 0.41960785)
