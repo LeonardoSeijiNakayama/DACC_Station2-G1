@@ -54,12 +54,11 @@ Pulo={
 
 [layer_names]
 
-2d_render/layer_1="mundo"
-2d_render/layer_2="player"
-2d_render/layer_3="itens"
 2d_physics/layer_1="Player"
 2d_physics/layer_2="Escadas"
 2d_physics/layer_3="Chão"
+2d_physics/layer_4="Itens"
+2d_physics/layer_5="stations"
 
 [physics]
 

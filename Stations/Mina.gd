@@ -2,9 +2,9 @@
 
 extends Node2D
 
-@onready var sprMina = $Area2D.get_child(1)
+@onready var sprMina = $Area_Mina.get_child(1)
 @onready var sprBotao = $Botao_Spr
-@onready var area = $Area2D
+@onready var area = $Area_Mina
 @onready var timer = $Producao_Timer
 @onready var label = $Produzindo_Label
 
@@ -57,7 +57,6 @@ func _on_producao_timer_timeout() -> void:
 	new_ore.rotation = [-3, -2 -1, 0, 1, 2, 3].pick_random()
 	get_parent().add_child(new_ore)
 	label.visible = false
-	print("Pronto!")
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:

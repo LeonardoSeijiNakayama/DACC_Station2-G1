@@ -2,17 +2,31 @@
 
 [ext_resource type="Texture2D" uid="uid://ds3v5bnddfcup" path="res://Stations/placeholders/ferro_ph.png" id="1_77ily"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_77ily"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i2di6"]
 radius = 7.0
 height = 18.0
 
-[node name="Ferro" type="RigidBody2D" unique_id=1380866705]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i2di6"]
+size = Vector2(17, 19.5)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2081501536]
-light_mask = 4
-visibility_layer = 7
-shape = SubResource("CapsuleShape2D_77ily")
+[node name="Ferro" type="RigidBody2D" unique_id=2017479421]
+collision_layer = 8
+collision_mask = 12
+gravity_scale = 0.4
+freeze_mode = 1
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1769787900]
-position = Vector2(1, 0)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=519949328]
+shape = SubResource("CapsuleShape2D_i2di6")
+debug_color = Color(0, 0.5743197, 0.8297416, 0.41960785)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1237137547]
 texture = ExtResource("1_77ily")
+
+[node name="Area_Ferro" type="Area2D" parent="." unique_id=714550742]
+collision_layer = 8
+collision_mask = 13
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area_Ferro" unique_id=432402653]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_i2di6")
+debug_color = Color(0.8162477, 0.23507977, 0.8199194, 0.41960785)

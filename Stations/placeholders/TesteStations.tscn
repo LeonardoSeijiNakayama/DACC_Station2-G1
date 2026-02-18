@@ -11,8 +11,10 @@ size = Vector2(16, 16)
 [node name="TesteStations" type="Node2D" unique_id=697346324]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1717066058]
-position = Vector2(279, 166)
+position = Vector2(281, 166)
 scale = Vector2(75.885, 1)
+collision_layer = 4
+collision_mask = 15
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1845428040]
 shape = SubResource("RectangleShape2D_ml3hp")
@@ -21,14 +23,14 @@ shape = SubResource("RectangleShape2D_ml3hp")
 texture = ExtResource("1_4uf6t")
 
 [node name="MinaCarvao" parent="." unique_id=2038531751 instance=ExtResource("2_ml3hp")]
-position = Vector2(444, 142)
+position = Vector2(851, 141)
 
 [node name="MinaFerro" parent="." unique_id=1199139156 instance=ExtResource("2_ml3hp")]
-position = Vector2(161, 141)
+position = Vector2(568, 140)
 type = 1
 
 [node name="Fornalha" parent="." unique_id=999989629 instance=ExtResource("3_2ib5e")]
 position = Vector2(289, 125)
 
 [node name="player" parent="." unique_id=152186675 instance=ExtResource("4_80hx1")]
-position = Vector2(55, 116)
+position = Vector2(56, 116)

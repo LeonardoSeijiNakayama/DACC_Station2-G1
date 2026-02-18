@@ -11,13 +11,15 @@ size = Vector2(32, 19)
 position = Vector2(566, 410)
 script = ExtResource("1_sjtkc")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=2101333416]
+[node name="Area_Mina" type="Area2D" parent="." unique_id=2101333416]
+collision_layer = 8
+collision_mask = 15
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=407316958]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area_Mina" unique_id=407316958]
 position = Vector2(0, 6.5)
 shape = SubResource("RectangleShape2D_nmsii")
 
-[node name="Mina_Spr" type="Sprite2D" parent="Area2D" unique_id=785450030]
+[node name="Mina_Spr" type="Sprite2D" parent="Area_Mina" unique_id=785450030]
 texture = ExtResource("2_404uv")
 
 [node name="Botao_Spr" type="Sprite2D" parent="." unique_id=311418721]
@@ -38,6 +40,6 @@ text = "Produzindo..."
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="Area_Mina" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area_Mina" to="." method="_on_area_2d_body_exited"]
 [connection signal="timeout" from="Producao_Timer" to="." method="_on_producao_timer_timeout"]
