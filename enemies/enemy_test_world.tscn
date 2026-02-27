@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://3bhpfk4dlfol"]
+
+[ext_resource type="PackedScene" uid="uid://cis4ucyi6nlme" path="res://enemies/ground.tscn" id="1_vergw"]
+[ext_resource type="PackedScene" uid="uid://gjqqg7du5gjf" path="res://enemies/base_test.tscn" id="3_cw4r5"]
+[ext_resource type="PackedScene" uid="uid://o0qiygv22si4" path="res://enemies/spawn_area.tscn" id="3_ovyau"]
+
+[node name="EnemyTestWorld" type="Node2D" unique_id=1633374563]
+
+[node name="StaticBody2D" parent="." unique_id=558945616 instance=ExtResource("1_vergw")]
+position = Vector2(574, 623)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1803196305]
+position = Vector2(583, 329)
+limit_left = 0
+limit_top = 0
+limit_right = 1152
+limit_bottom = 648
+
+[node name="Base1" parent="." unique_id=1106712333 instance=ExtResource("3_cw4r5")]
+position = Vector2(405, 582)
+
+[node name="Base2" parent="." unique_id=440686924 instance=ExtResource("3_cw4r5")]
+position = Vector2(745, 584)
+
+[node name="SpawnArea2" parent="." unique_id=612631048 instance=ExtResource("3_ovyau")]
+position = Vector2(-70, 609)
+quantity = 3
