@@ -1,15 +1,32 @@
 [gd_scene format=3 uid="uid://c17lqs7k4fdnm"]
 
-[ext_resource type="Texture2D" uid="uid://broq5vvmjixbx" path="res://icon.svg" id="1_i2di6"]
+[ext_resource type="Texture2D" uid="uid://bcsrqw0pwroue" path="res://Stations/placeholders/carvao_ph.png" id="1_i2di6"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_i2di6"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i2di6"]
+radius = 7.0
+height = 18.0
 
-[node name="RigidBody2D" type="RigidBody2D" unique_id=1380866705]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i2di6"]
+size = Vector2(17, 19.5)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2081501536]
-shape = SubResource("CircleShape2D_i2di6")
+[node name="Carvao" type="RigidBody2D" unique_id=1416427649]
+collision_layer = 8
+collision_mask = 12
+gravity_scale = 0.4
+freeze_mode = 1
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1769787900]
-modulate = Color(0.3137255, 0.21176471, 0.22745098, 1)
-scale = Vector2(0.09375, 0.09375)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=83892507]
+position = Vector2(0, 1)
+shape = SubResource("CapsuleShape2D_i2di6")
+debug_color = Color(0, 0.5743197, 0.8297416, 0.41960785)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=762236171]
 texture = ExtResource("1_i2di6")
+
+[node name="Area_Carvao" type="Area2D" parent="." unique_id=1826763259]
+collision_layer = 8
+collision_mask = 13
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area_Carvao" unique_id=1767596716]
+shape = SubResource("RectangleShape2D_i2di6")
+debug_color = Color(0.8162477, 0.23507977, 0.8199194, 0.41960785)

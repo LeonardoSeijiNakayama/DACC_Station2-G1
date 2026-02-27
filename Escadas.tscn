@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bxobvq4teghip"]
+
+[ext_resource type="Texture2D" uid="uid://broq5vvmjixbx" path="res://icon.svg" id="1_vbfym"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vbfym"]
+size = Vector2(125, 127.00001)
+
+[node name="Escada" type="Area2D" unique_id=131704939]
+scale = Vector2(0.2, 3)
+collision_layer = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=253799467]
+texture = ExtResource("1_vbfym")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1866660453]
+position = Vector2(2.5, 0.16666667)
+shape = SubResource("RectangleShape2D_vbfym")
