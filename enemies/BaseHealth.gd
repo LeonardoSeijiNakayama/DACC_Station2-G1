@@ -16,7 +16,7 @@ func take_damage(dmg:float)->void:
 	CURRENT_HEALTH -= dmg
 	_health_bar.value = CURRENT_HEALTH
 	if CURRENT_HEALTH <= 0.0:
-		_base.queue_free()
+		pass
 
 func heal(heal:float)->void:
 	CURRENT_HEALTH += heal
