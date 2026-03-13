@@ -11,7 +11,7 @@ size = Vector2(1256, 21)
 [node name="UiTestScene" type="Node2D" unique_id=1535464780]
 
 [node name="player" parent="." unique_id=152186675 instance=ExtResource("1_cdtwq")]
-position = Vector2(335, 206)
+position = Vector2(541, 493)
 
 [node name="Station" parent="." unique_id=999989629 instance=ExtResource("2_m4ubm")]
 position = Vector2(728, 535)
@@ -24,7 +24,7 @@ position = Vector2(324, 0.5)
 shape = SubResource("RectangleShape2D_cdtwq")
 
 [node name="SpawnArea" parent="." unique_id=283799282 instance=ExtResource("4_m4ubm")]
-position = Vector2(77, 470)
+position = Vector2(14, 533)
 
 [node name="Base1" parent="." unique_id=1106712333 instance=ExtResource("4_g0ftp")]
 position = Vector2(306, 524)
@@ -33,5 +33,5 @@ position = Vector2(306, 524)
 position = Vector2(778, 523)
 
 [node name="SpawnArea2" parent="." unique_id=1474680840 instance=ExtResource("4_m4ubm")]
-position = Vector2(1062, 505)
+position = Vector2(1172, 534)
 target = "Base2"
