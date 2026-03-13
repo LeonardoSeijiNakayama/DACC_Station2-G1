@@ -15,10 +15,6 @@ run/main_scene="uid://btoppmhcvd8gt"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
-[display]
-
-window/stretch/scale=1.46
-
 [input]
 
 Esquerda={

@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://tw85x5ksy63o"]
+
+[ext_resource type="PackedScene" uid="uid://cekex40d5qa86" path="res://player.tscn" id="1_cdtwq"]
+[ext_resource type="PackedScene" uid="uid://duep6t45g3ar7" path="res://Stations/Station.tscn" id="2_m4ubm"]
+[ext_resource type="PackedScene" uid="uid://gjqqg7du5gjf" path="res://enemies/base_test.tscn" id="4_g0ftp"]
+[ext_resource type="PackedScene" uid="uid://o0qiygv22si4" path="res://enemies/spawn_area.tscn" id="4_m4ubm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cdtwq"]
+size = Vector2(1256, 21)
+
+[node name="UiTestScene" type="Node2D" unique_id=1535464780]
+
+[node name="player" parent="." unique_id=152186675 instance=ExtResource("1_cdtwq")]
+position = Vector2(541, 493)
+
+[node name="Station" parent="." unique_id=999989629 instance=ExtResource("2_m4ubm")]
+position = Vector2(728, 535)
+
+[node name="ground" type="StaticBody2D" parent="." unique_id=1989773720]
+position = Vector2(227, 559)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ground" unique_id=1534352845]
+position = Vector2(324, 0.5)
+shape = SubResource("RectangleShape2D_cdtwq")
+
+[node name="SpawnArea" parent="." unique_id=283799282 instance=ExtResource("4_m4ubm")]
+position = Vector2(14, 533)
+
+[node name="Base1" parent="." unique_id=1106712333 instance=ExtResource("4_g0ftp")]
+position = Vector2(306, 524)
+
+[node name="Base2" parent="." unique_id=1683160541 instance=ExtResource("4_g0ftp")]
+position = Vector2(778, 523)
+
+[node name="SpawnArea2" parent="." unique_id=1474680840 instance=ExtResource("4_m4ubm")]
+position = Vector2(1172, 534)
+target = "Base2"
