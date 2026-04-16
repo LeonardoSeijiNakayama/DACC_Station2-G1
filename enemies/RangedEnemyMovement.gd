@@ -1,10 +1,10 @@
 extends Node
-class_name EnemyMovement
+class_name RangedEnemyMovement
 
 
 @onready var _enemy:CharacterBody2D = $".."
 @onready var _world:Node2D = _enemy.get_parent()
-@onready var _melee_attack_area:Area2D = $"../AttackAreaMelee"
+@onready var _ranged_attack_area:Area2D = $"../AttackAreaRanged"
 @onready var _collision:CollisionShape2D = $"../CollisionShape2D"
 @onready var _stop_raycast:RayCast2D = $"../StopRaycast"
 
@@ -48,6 +48,16 @@ func _process(delta: float) -> void:
 	
 	if direction:
 		if direction.x < 0:
-			_melee_attack_area.position.x = -31.0
+			_ranged_attack_area.position.x = -200.0
 		elif direction.x > 0:
-			_melee_attack_area.position.x = 0.0
+			_ranged_attack_area.position.x = 0.0
+
+
+func _on_ranged_stop_area_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Base"):
+			stopped_area = true
+
+
+func _on_ranged_stop_area_body_exited(body: Node2D) -> void:
+	if body.is_in_group("Base"):
+			stopped_area = false

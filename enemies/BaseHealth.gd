@@ -4,7 +4,6 @@ class_name BaseHealth
 @export var MAXIMUM_HEALTH = 100.0
 @export var CURRENT_HEALTH = MAXIMUM_HEALTH
 @onready var _health_bar:ProgressBar = $"../HealthBar"
-@onready var _base:StaticBody2D = $".."
 
 func _ready() -> void:
 	CURRENT_HEALTH = MAXIMUM_HEALTH
@@ -18,8 +17,8 @@ func take_damage(dmg:float)->void:
 	if CURRENT_HEALTH <= 0.0:
 		pass
 
-func heal(heal:float)->void:
-	CURRENT_HEALTH += heal
+func heal(quantity:float)->void:
+	CURRENT_HEALTH += quantity
 	if CURRENT_HEALTH > 100.0:
 		CURRENT_HEALTH = 100.0
 	_health_bar.value = CURRENT_HEALTH

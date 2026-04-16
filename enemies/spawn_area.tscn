@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://o0qiygv22si4"]
+[gd_scene format=3 uid="uid://cfugqcso1fu31"]
 
-[ext_resource type="Script" uid="uid://kvpris0cuand" path="res://enemies/SpawnArea.gd" id="1_7wuls"]
-[ext_resource type="Script" uid="uid://bcydr71mfewob" path="res://enemies/SpawnEnemies.gd" id="1_tt2dt"]
+[ext_resource type="Script" path="res://enemies/SpawnArea.gd" id="1_7wuls"]
+[ext_resource type="Script" path="res://enemies/SpawnEnemies.gd" id="1_tt2dt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3wmkr"]
 size = Vector2(1, 1)

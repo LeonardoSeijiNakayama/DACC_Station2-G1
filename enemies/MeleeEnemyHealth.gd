@@ -1,5 +1,5 @@
 extends Node
-class_name  EnemyHealth
+class_name  MeleeEnemyHealth
 
 @export var MAXIMUM_HEALTH = 100.0
 @export var CURRENT_HEALTH = MAXIMUM_HEALTH
@@ -18,8 +18,8 @@ func take_damage(dmg:float)->void:
 	if CURRENT_HEALTH <= 0.0:
 		_enemy.queue_free()
 
-func heal(heal:float)->void:
-	CURRENT_HEALTH += heal
+func heal(quantity:float)->void:
+	CURRENT_HEALTH += quantity
 	if CURRENT_HEALTH > 100.0:
 		CURRENT_HEALTH = 100.0
 	_health_bar.value = CURRENT_HEALTH

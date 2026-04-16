@@ -1,6 +1,7 @@
 extends Node
 
-@onready var _enemy_scene = preload("res://enemies/enemy.tscn")
+@onready var _melee_enemy_scene = preload("res://enemies/MeleeEnemy.tscn")
+@onready var _ranged_enemy_scene = preload("res://enemies/RangedEnemy.tscn")
 @onready var _collision_shape = $"../CollisionShape2D"
 @onready var _collision_shape2 = $"../CollisionShape2D2"
 @onready var _spawn_area:SpawnArea = $".."
@@ -53,20 +54,24 @@ func _process(delta: float) -> void:
 
 
 func spawn_enemy():
-	var enemy:CharacterBody2D = _enemy_scene.instantiate()
-	var attack:EnemyAttack = enemy.get_node("Attack")
-	var movement:EnemyMovement = enemy.get_node("Movement")
-	
-	movement.target = _spawn_area.target
+	var enemy:CharacterBody2D = null
 	
 	if ranged_count%og_ranged_total == 0 and can_spawn_melee:
+		enemy = _melee_enemy_scene.instantiate()
 		melee_count+=1
-		attack.type = 1
 		can_spawn_melee = false
+		if enemy:
+			var movement:EnemyMovement = enemy.get_node("Movement")
+			movement.target = _spawn_area.target
 	else:
+		enemy = _ranged_enemy_scene.instantiate()
 		ranged_count+=1
-		attack.type = 2
 		can_spawn_melee = true
+		if enemy:
+			var movement:RangedEnemyMovement = enemy.get_node("Movement")
+			movement.target = _spawn_area.target
+	
+	
 	
 	total_count += 1
 	enemies.append(enemy)

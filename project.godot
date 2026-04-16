@@ -59,6 +59,8 @@ Pulo={
 2d_physics/layer_3="Chão"
 2d_physics/layer_4="Itens"
 2d_physics/layer_5="stations"
+2d_physics/layer_6="Melee Enemies"
+2d_physics/layer_7="Ranged Enemies"
 
 [physics]
 
