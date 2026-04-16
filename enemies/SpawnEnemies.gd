@@ -82,15 +82,17 @@ func spawn_enemy():
 		enemies.erase(enemy)
 	)
 	
-	enemy.global_position = get_random_point_in_area()
+	get_random_point_in_area(enemy)
 
 
-func get_random_point_in_area()->Vector2:
+func get_random_point_in_area(enemy:CharacterBody2D)->void:
 	var shape_node:CollisionShape2D
 	if change_spawn_area:
+		enemy.get_node("AnimatedSprite2D").z_index = 2
 		shape_node = _collision_shape
 		change_spawn_area = false
 	else:
+		enemy.get_node("AnimatedSprite2D").z_index = 1
 		shape_node = _collision_shape2
 		change_spawn_area = true
 	
@@ -98,5 +100,5 @@ func get_random_point_in_area()->Vector2:
 	var x = randf_range(rect.position.x, rect.position.x + rect.size.x)
 	var y = randf_range(rect.position.y, rect.position.y + rect.size.y)
 	
-	return shape_node.to_global(Vector2(x, y))
+	enemy.global_position = shape_node.to_global(Vector2(x, y))
 	
