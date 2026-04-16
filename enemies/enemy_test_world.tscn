@@ -10,7 +10,6 @@
 position = Vector2(574, 623)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1803196305]
-position = Vector2(583, 329)
 limit_left = 0
 limit_top = 0
 limit_right = 1152

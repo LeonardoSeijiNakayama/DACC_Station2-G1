@@ -1,9 +1,9 @@
-[gd_scene format=3 uid="uid://d1vg6gdn5xgol"]
+[gd_scene format=3 uid="uid://ddtyaudisbpsx"]
 
 [ext_resource type="Texture2D" uid="uid://b50bmvt4h1vfc" path="res://Stations/placeholders/white_wall_ph.png" id="1_4uf6t"]
-[ext_resource type="PackedScene" uid="uid://btoppmhcvd8gt" path="res://Stations/Mina.tscn" id="2_ml3hp"]
-[ext_resource type="PackedScene" uid="uid://duep6t45g3ar7" path="res://Stations/Station.tscn" id="3_2ib5e"]
-[ext_resource type="PackedScene" uid="uid://cekex40d5qa86" path="res://player.tscn" id="4_80hx1"]
+[ext_resource type="PackedScene" path="res://Stations/Mina.tscn" id="2_80hx1"]
+[ext_resource type="PackedScene" path="res://Stations/Station.tscn" id="3_2ib5e"]
+[ext_resource type="PackedScene" uid="uid://br2e0formky1t" path="res://player.tscn" id="4_80hx1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ml3hp"]
 size = Vector2(16, 16)
@@ -22,11 +22,11 @@ shape = SubResource("RectangleShape2D_ml3hp")
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=979270388]
 texture = ExtResource("1_4uf6t")
 
-[node name="MinaCarvao" parent="." unique_id=2038531751 instance=ExtResource("2_ml3hp")]
-position = Vector2(826, 140)
+[node name="MinaCarvao" parent="." unique_id=2038531751 instance=ExtResource("2_80hx1")]
+position = Vector2(0, 141)
 
-[node name="MinaFerro" parent="." unique_id=1199139156 instance=ExtResource("2_ml3hp")]
-position = Vector2(306, 140)
+[node name="MinaFerro" parent="." unique_id=450268369 instance=ExtResource("2_80hx1")]
+position = Vector2(333, 136)
 type = 1
 
 [node name="Fornalha" parent="." unique_id=999989629 instance=ExtResource("3_2ib5e")]

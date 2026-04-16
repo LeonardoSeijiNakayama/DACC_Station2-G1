@@ -75,7 +75,7 @@ func _physics_process(delta: float) -> void:
 	match holding: # State Machine que varia entre Segurando ou Nao Segurando
 		true: # Se estiver segurando
 			# a posicao do item ficara relacionada a posicao do player
-			item_hold_id.position.x = Vector2(position.x, position.y - 30)
+			item_hold_id.position = Vector2(position.x, position.y - 30)
 			if Input.is_action_just_pressed("ui_accept"): # Se apertar a tecla [Enter]
 				item_hold_id.freeze = false # Item descongela
 				item_hold_id = null # esquece o no do item
