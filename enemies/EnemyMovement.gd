@@ -48,6 +48,6 @@ func _process(delta: float) -> void:
 	
 	if direction:
 		if direction.x < 0:
-			_melee_attack_area.position.x = -31.0
+			_melee_attack_area.position.x = -15.5
 		elif direction.x > 0:
-			_melee_attack_area.position.x = 0.0
+			_melee_attack_area.position.x = 15.5
