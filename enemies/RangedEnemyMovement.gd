@@ -48,9 +48,9 @@ func _process(delta: float) -> void:
 	
 	if direction:
 		if direction.x < 0:
-			_ranged_attack_area.position.x = -200.0
+			_ranged_attack_area.position.x = -160.0
 		elif direction.x > 0:
-			_ranged_attack_area.position.x = 0.0
+			_ranged_attack_area.position.x = 160.0
 
 
 func _on_ranged_stop_area_body_entered(body: Node2D) -> void:

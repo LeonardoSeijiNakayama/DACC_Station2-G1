@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://5hxuopluy7vf"]
 
 [ext_resource type="PackedScene" path="res://enemies/ground.tscn" id="1_vergw"]
-[ext_resource type="PackedScene" path="res://enemies/base_test.tscn" id="3_cw4r5"]
-[ext_resource type="PackedScene" uid="uid://cfugqcso1fu31" path="res://enemies/spawn_area.tscn" id="3_ovyau"]
+[ext_resource type="PackedScene" uid="uid://gjqqg7du5gjf" path="res://enemies/base_test.tscn" id="3_cw4r5"]
+[ext_resource type="PackedScene" uid="uid://o0qiygv22si4" path="res://enemies/spawn_area.tscn" id="3_ovyau"]
 
 [node name="EnemyTestWorld" type="Node2D" unique_id=1633374563]
 
@@ -10,10 +10,11 @@
 position = Vector2(574, 623)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1803196305]
-limit_left = 0
-limit_top = 0
-limit_right = 1152
-limit_bottom = 648
+zoom = Vector2(1.25, 1.25)
+limit_left = 112
+limit_top = 118
+limit_right = 1264
+limit_bottom = 766
 
 [node name="Base1" parent="." unique_id=1106712333 instance=ExtResource("3_cw4r5")]
 position = Vector2(405, 582)
