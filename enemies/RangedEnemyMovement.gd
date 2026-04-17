@@ -8,6 +8,7 @@ class_name RangedEnemyMovement
 @onready var _ranged_stop_area:Area2D = $"../RangedStopArea"
 @onready var _collision:CollisionShape2D = $"../CollisionShape2D"
 @onready var _stop_raycast:RayCast2D = $"../StopRaycast"
+@onready var _attack:RangedEnemyAttack = $"../Attack"
 
 var base:StaticBody2D = null
 var target = "Base"
@@ -33,7 +34,7 @@ func _process(delta: float) -> void:
 	
 	stopped_raycast = _stop_raycast.is_colliding()
 	
-	stopped = stopped_raycast or stopped_area
+	stopped = stopped_raycast or stopped_area or _attack.attacking
 	
 	var direction
 	_enemy.velocity.y = 0.0

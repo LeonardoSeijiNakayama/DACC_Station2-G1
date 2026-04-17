@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b7c7cmye6aa6n"]
 
 [ext_resource type="Script" uid="uid://cp457626dv20h" path="res://enemies/EnemyMovement.gd" id="1_s3y7u"]
-[ext_resource type="Script" path="res://enemies/MeleeEnemyHealth.gd" id="2_r3g14"]
+[ext_resource type="Script" uid="uid://ddoegomymose1" path="res://enemies/MeleeEnemyHealth.gd" id="2_r3g14"]
 [ext_resource type="Script" uid="uid://b16gdauwql6ti" path="res://enemies/MeleeEnemyAttack.gd" id="3_fbkaq"]
 [ext_resource type="Script" uid="uid://bv61i10fj7n0o" path="res://enemies/EnemyAnimation.gd" id="4_fbkaq"]
 [ext_resource type="Texture2D" uid="uid://bb47bbmrw7boy" path="res://enemies/images/KnightSpritesheet.png" id="4_r3g14"]
@@ -131,6 +131,9 @@ script = ExtResource("3_fbkaq")
 
 [node name="MeleeAttackTimer" type="Timer" parent="Attack" unique_id=285648390]
 
+[node name="AttackingTimer" type="Timer" parent="Attack" unique_id=992383842]
+wait_time = 0.4
+
 [node name="Animation" type="Node" parent="." unique_id=2142619315]
 script = ExtResource("4_fbkaq")
 
@@ -164,6 +167,7 @@ collision_mask = 4
 shape = SubResource("RectangleShape2D_07tka")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1095977538]
+texture_filter = 1
 position = Vector2(6, -6)
 scale = Vector2(1.325, 1.325)
 sprite_frames = SubResource("SpriteFrames_72yua")
@@ -172,6 +176,7 @@ frame = 4
 frame_progress = 1.0
 
 [connection signal="timeout" from="Attack/MeleeAttackTimer" to="Attack" method="_on_attack_timer_timeout"]
+[connection signal="timeout" from="Attack/AttackingTimer" to="Attack" method="_on_attacking_timer_timeout"]
 [connection signal="body_entered" from="AttackAreaMelee" to="Attack" method="_on_attack_area_body_entered"]
 [connection signal="body_exited" from="AttackAreaMelee" to="Attack" method="_on_attack_area_body_exited"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="Animation" method="_on_animated_sprite_2d_animation_finished"]

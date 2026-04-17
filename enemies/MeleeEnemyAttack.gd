@@ -2,8 +2,11 @@ extends Node
 class_name  MeleeEnemyAttack
 
 @onready var _melee_attack_timer = $MeleeAttackTimer
+@onready var _attacking_timer = $AttackingTimer
 @onready var _movement:EnemyMovement = $"../Movement"
 @onready var _animation:EnemyAnimation = $"../Animation"
+
+var attacking = false
 var base_in_range = false
 var base_ref = null
 
@@ -33,8 +36,14 @@ func _on_attack_timer_timeout() -> void:
 
 
 func attack()->void:
-	print("Ataque melee")
+	attacking = true
+	_attacking_timer.start()
 	_animation.play_attack_animation()
 	var base_health:BaseHealth = base_ref.get_node("Health")
 	if base_health:
 		base_health.take_damage(2.0)
+
+
+func _on_attacking_timer_timeout() -> void:
+	attacking = false
+	pass
