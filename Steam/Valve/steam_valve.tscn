@@ -1,0 +1,160 @@
+[gd_scene format=3 uid="uid://c1yax5fk6aq0e"]
+
+[ext_resource type="Texture2D" uid="uid://b28km8bx1si4m" path="res://Steam/Valve/SteamValves-Sheet.png" id="1_ofoge"]
+[ext_resource type="Script" uid="uid://daqlxls87p3bp" path="res://Steam/Valve/steam_valve_script.gd" id="2_268dn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gy17w"]
+atlas = ExtResource("1_ofoge")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_17xyf"]
+atlas = ExtResource("1_ofoge")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ewypm"]
+atlas = ExtResource("1_ofoge")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2cj4n"]
+atlas = ExtResource("1_ofoge")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ofoge"]
+atlas = ExtResource("1_ofoge")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_268dn"]
+atlas = ExtResource("1_ofoge")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tsq3a"]
+atlas = ExtResource("1_ofoge")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bo83m"]
+atlas = ExtResource("1_ofoge")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rbhnd"]
+atlas = ExtResource("1_ofoge")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ajh2f"]
+atlas = ExtResource("1_ofoge")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d5mth"]
+atlas = ExtResource("1_ofoge")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w6txu"]
+atlas = ExtResource("1_ofoge")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nbumh"]
+atlas = ExtResource("1_ofoge")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hauo5"]
+atlas = ExtResource("1_ofoge")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_at3my"]
+atlas = ExtResource("1_ofoge")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ml0f"]
+atlas = ExtResource("1_ofoge")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a87ej"]
+atlas = ExtResource("1_ofoge")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f5hc7"]
+atlas = ExtResource("1_ofoge")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bo83m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gy17w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_17xyf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ewypm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2cj4n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ofoge")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_268dn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tsq3a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bo83m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rbhnd")
+}],
+"loop": false,
+"name": &"Closing",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ajh2f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d5mth")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w6txu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nbumh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hauo5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_at3my")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ml0f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a87ej")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f5hc7")
+}],
+"loop": false,
+"name": &"Opening",
+"speed": 5.0
+}]
+
+[node name="SteamValve" type="Node2D" unique_id=716328884]
+script = ExtResource("2_268dn")
+
+[node name="SendSteamTimer" type="Timer" parent="." unique_id=1374612043]
+wait_time = 0.5
+one_shot = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=789654478]
+sprite_frames = SubResource("SpriteFrames_bo83m")
+animation = &"Opening"
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=1622370511]
+offset_left = -43.0
+offset_top = -36.0
+offset_right = 43.0
+offset_bottom = -9.0
