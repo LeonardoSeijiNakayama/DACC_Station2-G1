@@ -2,6 +2,12 @@
 
 [ext_resource type="Script" uid="uid://duphyyxlrbcjj" path="res://Steam/Boiler/boiler.gd" id="1_rxw2x"]
 [ext_resource type="Texture2D" uid="uid://citsmb2sfotec" path="res://Steam/Boiler/Boiler-Sheet.png" id="2_rxw2x"]
+[ext_resource type="Texture2D" uid="uid://daek870p1clku" path="res://UI/FireBarFrame.png" id="3_bfwdb"]
+[ext_resource type="Texture2D" uid="uid://n68euajsay62" path="res://UI/FireBarContent.png" id="4_qvd4h"]
+[ext_resource type="Texture2D" uid="uid://bb31qlqqmhynw" path="res://UI/WaterBarFrame.png" id="5_1t02n"]
+[ext_resource type="Texture2D" uid="uid://bo5bo3m3po1lw" path="res://UI/WaterBarContent.png" id="6_4elnu"]
+[ext_resource type="Texture2D" uid="uid://bq4cdc0oiedp2" path="res://UI/SteamBarFrame.png" id="7_1t02n"]
+[ext_resource type="Texture2D" uid="uid://d20eko7grch63" path="res://UI/SteamBarContent.png" id="8_4elnu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ajk1e"]
 atlas = ExtResource("2_rxw2x")
@@ -249,19 +255,48 @@ animations = [{
 
 [node name="Boiler" type="Node2D" unique_id=1042986554]
 script = ExtResource("1_rxw2x")
-capacity = null
-coal_capacity = null
-id_destination = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1510756246]
 position = Vector2(12, -32)
 sprite_frames = SubResource("SpriteFrames_ov7sv")
 animation = &"Working"
-frame_progress = 0.16300553
+frame = 4
+frame_progress = 0.46418557
 
 [node name="SendSteamTimer" type="Timer" parent="." unique_id=1765207225]
-wait_time = 0.75
+wait_time = 3.0
 one_shot = true
 
 [node name="GenerateSteamTimer" type="Timer" parent="." unique_id=29944072]
+wait_time = 2.0
 one_shot = true
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="." unique_id=57485977]
+offset_left = -24.0
+offset_top = -44.0
+offset_right = 24.0
+offset_bottom = -4.0
+value = 50.0
+texture_under = ExtResource("3_bfwdb")
+texture_progress = ExtResource("4_qvd4h")
+texture_progress_offset = Vector2(11, 3)
+
+[node name="TextureProgressBar2" type="TextureProgressBar" parent="." unique_id=1601073785]
+offset_left = -24.0
+offset_top = -58.0
+offset_right = 24.0
+offset_bottom = -18.0
+value = 50.0
+texture_under = ExtResource("5_1t02n")
+texture_progress = ExtResource("6_4elnu")
+texture_progress_offset = Vector2(11, 3)
+
+[node name="TextureProgressBar3" type="TextureProgressBar" parent="." unique_id=1355003923]
+offset_left = -24.0
+offset_top = -72.0
+offset_right = 24.0
+offset_bottom = -32.0
+value = 50.0
+texture_under = ExtResource("7_1t02n")
+texture_progress = ExtResource("8_4elnu")
+texture_progress_offset = Vector2(11, 3)

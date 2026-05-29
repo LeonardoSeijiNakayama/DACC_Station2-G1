@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://csmumfww7d01p" path="res://Steam/Gun/SteamWhistleGun.png" id="1_se3j1"]
 [ext_resource type="Texture2D" uid="uid://dskw5ar0l24mv" path="res://Steam/Gun/SteamAttacks-Sheet.png" id="2_5itn6"]
 [ext_resource type="Texture2D" uid="uid://b28km8bx1si4m" path="res://Steam/Valve/SteamValves-Sheet.png" id="4_f8d7s"]
+[ext_resource type="Texture2D" uid="uid://bq4cdc0oiedp2" path="res://UI/SteamBarFrame.png" id="5_g8xts"]
+[ext_resource type="Texture2D" uid="uid://d20eko7grch63" path="res://UI/SteamBarContent.png" id="6_7fhna"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f8d7s"]
 atlas = ExtResource("1_se3j1")
@@ -513,11 +515,15 @@ one_shot = true
 wait_time = 0.2
 one_shot = true
 
-[node name="ProgressBar" type="ProgressBar" parent="." unique_id=2125286593]
-offset_left = -40.0
-offset_top = -45.0
-offset_right = 24.0
-offset_bottom = -18.0
+[node name="ProgressBar" type="TextureProgressBar" parent="." unique_id=1332989135]
+offset_left = -32.0
+offset_top = -28.0
+offset_right = 16.0
+offset_bottom = 12.0
+value = 50.0
+texture_under = ExtResource("5_g8xts")
+texture_progress = ExtResource("6_7fhna")
+texture_progress_offset = Vector2(11, 3)
 
 [connection signal="animation_finished" from="ShortAttackSprite" to="." method="_on_short_attack_sprite_animation_finished"]
 [connection signal="animation_finished" from="MediumAttackSprite" to="." method="_on_medium_attack_sprite_animation_finished"]

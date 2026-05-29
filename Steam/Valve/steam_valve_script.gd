@@ -1,35 +1,39 @@
 extends Node
 class_name SteamValve
 
-@onready var sendSteamTimer:Timer = $SendSteamTimer
-@onready var animation:AnimatedSprite2D = $AnimatedSprite2D
-@onready var capacityBar:ProgressBar = $ProgressBar
+@onready var sendSteamTimer: Timer = $SendSteamTimer
+@onready var animation: AnimatedSprite2D = $AnimatedSprite2D
+@onready var capacityBar: TextureProgressBar = $ProgressBar
 
-@export_range(0.0, 100.0, 5.0) var capacity:float= 0.0
+@export_range(0.0, 100.0, 5.0) var capacity: float = 0.0
 @export var id := 0
-@export var id_destination:Array[int] = []
+@export var id_destination: Array[int] = []
 
-var can_receive:bool = true
+var can_receive: bool = true
 
 const OPENED := 1
 const CLOSED := 2
 
-const amount_constant:float = 5.0
+const amount_constant: float = 5.0
 
 var current_state := OPENED
 var destination_valves: Array[Node] = []
 
 
 func _ready() -> void:
-	capacityBar.set_value_no_signal(capacity)
+	capacityBar.value = capacity
+
+	sendSteamTimer.one_shot = true
+	sendSteamTimer.timeout.connect(_on_send_steam_timer_timeout)
+
 	add_to_group("steam")
 	call_deferred("find_destination_valves")
 
+	_try_start_cooldown()
+
 
 func _physics_process(_delta: float) -> void:
-	if current_state == OPENED and sendSteamTimer.is_stopped() and capacity>=amount_constant:
-		send_steam(amount_constant)
-		sendSteamTimer.start()
+	pass
 
 
 func find_destination_valves() -> void:
@@ -68,16 +72,18 @@ func send_steam(amount: float) -> void:
 	var amount_per_valve: float = steam_to_send / available_valves.size()
 	
 	capacity -= steam_to_send
-	capacityBar.set_value_no_signal(capacity)
+	capacityBar.value = capacity
+	
 	
 	for valve in available_valves:
 		valve.receive_steam(amount_per_valve)
 
 
 func receive_steam(amount: float) -> void:
-	
+	print("Valvula ", id, " recebeu vapor")
 	capacity = min(capacity + amount, 100.0)
-	capacityBar.set_value_no_signal(capacity)
+	capacityBar.value = capacity
+	_try_start_cooldown()
 
 
 func open_valve() -> void:
@@ -88,3 +94,18 @@ func open_valve() -> void:
 func close_valve() -> void:
 	animation.play("Closing")
 	current_state = CLOSED
+
+
+func _try_start_cooldown() -> void:
+	if current_state == CLOSED:
+		return
+	
+	if sendSteamTimer.is_stopped() and capacity >= amount_constant:
+		sendSteamTimer.start()
+
+
+func _on_send_steam_timer_timeout() -> void:
+	if current_state == OPENED and capacity >= amount_constant:
+		send_steam(amount_constant)
+	
+	_try_start_cooldown()

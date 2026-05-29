@@ -2,6 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://b28km8bx1si4m" path="res://Steam/Valve/SteamValves-Sheet.png" id="1_ofoge"]
 [ext_resource type="Script" uid="uid://daqlxls87p3bp" path="res://Steam/Valve/steam_valve_script.gd" id="2_268dn"]
+[ext_resource type="Texture2D" uid="uid://bq4cdc0oiedp2" path="res://UI/SteamBarFrame.png" id="3_gy17w"]
+[ext_resource type="Texture2D" uid="uid://d20eko7grch63" path="res://UI/SteamBarContent.png" id="4_17xyf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gy17w"]
 atlas = ExtResource("1_ofoge")
@@ -146,15 +148,19 @@ animations = [{
 script = ExtResource("2_268dn")
 
 [node name="SendSteamTimer" type="Timer" parent="." unique_id=1374612043]
-wait_time = 0.5
+wait_time = 2.0
 one_shot = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=789654478]
 sprite_frames = SubResource("SpriteFrames_bo83m")
 animation = &"Opening"
 
-[node name="ProgressBar" type="ProgressBar" parent="." unique_id=1622370511]
-offset_left = -43.0
-offset_top = -36.0
-offset_right = 43.0
-offset_bottom = -9.0
+[node name="ProgressBar" type="TextureProgressBar" parent="." unique_id=1839399868]
+offset_left = -24.0
+offset_top = -21.0
+offset_right = 24.0
+offset_bottom = 19.0
+value = 50.0
+texture_under = ExtResource("3_gy17w")
+texture_progress = ExtResource("4_17xyf")
+texture_progress_offset = Vector2(11, 3)
