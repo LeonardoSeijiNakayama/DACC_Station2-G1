@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var train_scene: PackedScene = preload("res://Tileset/MariaFumaça/maria-fumaça.tscn")
+@export var train_scene: PackedScene = preload("res://Tileset/MariaFumaca/maria-fumaca.tscn")
 @export var spawn_position: Vector2 = Vector2(722, 166)
 
 @onready var timer: Timer = $TrainTimer
