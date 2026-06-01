@@ -4,15 +4,23 @@ class_name Boiler
 @onready var sendSteamTimer:Timer = $SendSteamTimer
 @onready var generateSteamTimer:Timer = $GenerateSteamTimer
 @onready var animation:AnimatedSprite2D = $AnimatedSprite2D
+@onready var fireBar:TextureProgressBar = $TextureProgressBar
+@onready var waterBar:TextureProgressBar = $TextureProgressBar2
+@onready var steamBar:TextureProgressBar = $TextureProgressBar3
 
 @export_range(0.0, 100.0, 5.0) var capacity:float= 0.0
 @export_range(0.0, 100.0, 5.0) var coal_capacity:float= 0.0
+@export_range(0.0, 100.0, 5.0) var water_capacity:float = 0.0
 @export var id_destination:Array[int] = []
 
 var can_receive:bool = true
 
-const amount_constant:float = 10.0
-const amount_generate_constant:float = 20.0
+const amount_send_constant:float = 10.0
+const steam_generate_amount:float = 10.0
+const coal_amount = 20.0
+const coal_generate_amount = 20.0
+const water_amount = 20.0
+const water_generate_amount = 10.0
 
 const WORKING = 1
 const NOT_WORKING = 2 
@@ -28,18 +36,23 @@ func _ready() -> void:
 
 
 func _physics_process(_delta: float) -> void:
-	if coal_capacity <= 0.0:
+	
+	fireBar.value = coal_capacity
+	waterBar.value = water_capacity
+	steamBar.value = capacity
+	
+	if (coal_capacity <= 0.0 or water_capacity <= 0.0) and capacity<=0.0:
 		current_state = NOT_WORKING
 		animation.play("NotWorking")
 	
-	if generateSteamTimer.is_stopped() and coal_capacity>=amount_generate_constant:
+	if generateSteamTimer.is_stopped() and water_capacity>=water_generate_amount and coal_capacity>=coal_generate_amount and capacity < 100.0:
 		current_state = WORKING
-		generate_steam(amount_generate_constant)
+		generate_steam()
 		generateSteamTimer.start()
 		animation.play("Working")
 	
-	if sendSteamTimer.is_stopped() and capacity>=amount_constant:
-		send_steam(amount_constant)
+	if sendSteamTimer.is_stopped() and capacity>=amount_send_constant:
+		send_steam(amount_send_constant)
 		sendSteamTimer.start()
 
 
@@ -82,10 +95,15 @@ func send_steam(amount: float) -> void:
 		valve.receive_steam(amount_per_valve)
 
 
-func receive_coal(amount:float)->void:
-	coal_capacity += amount
+func receive_coal()->void:
+	coal_capacity += coal_amount
 
 
-func generate_steam(amount:float)->void:
-	coal_capacity-=amount
-	capacity+=amount
+func receive_water()->void:
+	water_capacity += water_amount
+
+
+func generate_steam()->void:
+	water_capacity-=water_generate_amount
+	coal_capacity-=coal_generate_amount
+	capacity = min(capacity + steam_generate_amount, 100.0)

@@ -53,6 +53,5 @@ limit_bottom = 648
 
 [node name="Boiler" parent="." unique_id=1042986554 instance=ExtResource("4_ts7hx")]
 position = Vector2(252, 160)
-capacity = 0.0
 coal_capacity = 100.0
 id_destination = Array[int]([1])

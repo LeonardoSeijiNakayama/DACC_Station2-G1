@@ -10,7 +10,7 @@ class_name SteamGun
 @onready var shortAttackAnimation:AnimatedSprite2D = $ShortAttackSprite
 @onready var mediumAttackAnimation:AnimatedSprite2D = $MediumAttackSprite
 @onready var longAttackAnimation:AnimatedSprite2D = $LongAttackSprite
-@onready var capacityBar:ProgressBar = $ProgressBar
+@onready var capacityBar:TextureProgressBar = $ProgressBar
 
 @export var id = 0
 @export_range(0.0, 100.0) var capacity = 0.0
@@ -30,36 +30,35 @@ func _ready() -> void:
 	longAttackAnimation.visible = false
 
 func _process(_delta: float) -> void:
+	capacityBar.value = capacity
+	
 	if current_state == OPENED and attackTimer.is_stopped():
 		if capacity >= 100.0:
 			longAttack()
 			attackTimer.start()
-		elif capacity >= 66.0:
+		elif capacity >= 65.0:
 			mediumAttack()
 			attackTimer.start()
-		elif capacity >= 33.0:
+		elif capacity >= 35.0:
 			shortAttack()
 			attackTimer.start()
 
 func longAttack():
 	capacity-=100.0
-	capacityBar.set_value_no_signal(capacity)
 	longAttackArea.monitoring = true
 	longAttackAnimation.visible = true
 	longAttackAnimation.play("Attack")
 	attackingTimer.start()
 
 func mediumAttack():
-	capacity-=66.0
-	capacityBar.set_value_no_signal(capacity)
+	capacity-=65.0
 	mediumAttackArea.monitoring = true
 	mediumAttackAnimation.visible = true
 	mediumAttackAnimation.play("Attack")
 	attackingTimer.start()
 
 func shortAttack():
-	capacity-=33.0
-	capacityBar.set_value_no_signal(capacity)
+	capacity-=35.0
 	shortAttackArea.monitoring = true
 	shortAttackAnimation.visible = true
 	shortAttackAnimation.play("Attack")
@@ -67,7 +66,6 @@ func shortAttack():
 
 func receive_steam(amount: float) -> void:
 	capacity = min(capacity + amount, 100.0)
-	capacityBar.set_value_no_signal(capacity)
 
 func open_valve() -> void:
 	valveAnimation.play("Opening")
