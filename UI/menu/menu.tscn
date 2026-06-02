@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://cn8n1qxj7p17u"]
+
+[ext_resource type="Texture2D" uid="uid://kr582c3hsskw" path="res://UI/menu/Background.png" id="1_1xyc7"]
+[ext_resource type="Script" uid="uid://crducejsjnoe5" path="res://UI/menu/menu.gd" id="1_7jt6j"]
+[ext_resource type="Texture2D" uid="uid://dx0seg3ysngv2" path="res://UI/menu/PlayBtn.png" id="2_rxpqy"]
+[ext_resource type="Texture2D" uid="uid://bmkrmlfnp3d0w" path="res://UI/menu/PlayBtnPressed.png" id="3_oo15n"]
+[ext_resource type="Texture2D" uid="uid://de5xcxxbjx6lc" path="res://UI/menu/PlayBtnHover.png" id="4_ijto3"]
+[ext_resource type="Texture2D" uid="uid://cbxr4ex48e16u" path="res://UI/menu/ExitBtn.png" id="5_papuc"]
+[ext_resource type="Texture2D" uid="uid://cto3ivru40wal" path="res://UI/menu/ExitBtnPressed.png" id="6_7jt6j"]
+[ext_resource type="Texture2D" uid="uid://clg1vrmmc04xa" path="res://UI/menu/ExitBtnHover.png" id="7_0poe0"]
+
+[node name="Menu" type="Control" unique_id=177543608]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7jt6j")
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=1680213360]
+texture_filter = 1
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 180.0
+texture = ExtResource("1_1xyc7")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1645036909]
+position = Vector2(160, 90)
+zoom = Vector2(3.6, 3.6)
+
+[node name="PlayBtn" type="TextureButton" parent="." unique_id=1333786157]
+layout_mode = 0
+offset_left = 131.0
+offset_top = 89.0
+offset_right = 189.0
+offset_bottom = 129.0
+texture_normal = ExtResource("2_rxpqy")
+texture_pressed = ExtResource("3_oo15n")
+texture_hover = ExtResource("4_ijto3")
+
+[node name="ExitBtn" type="TextureButton" parent="." unique_id=2047110098]
+layout_mode = 0
+offset_left = 131.0
+offset_top = 118.0
+offset_right = 189.0
+offset_bottom = 158.0
+texture_normal = ExtResource("5_papuc")
+texture_pressed = ExtResource("6_7jt6j")
+texture_hover = ExtResource("7_0poe0")
+
+[connection signal="pressed" from="PlayBtn" to="." method="_on_play_btn_pressed"]
+[connection signal="pressed" from="ExitBtn" to="." method="_on_exit_btn_pressed"]
