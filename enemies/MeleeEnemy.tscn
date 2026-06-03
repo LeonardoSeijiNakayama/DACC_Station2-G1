@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://b7c7cmye6aa6n"]
 
 [ext_resource type="Script" uid="uid://cp457626dv20h" path="res://enemies/EnemyMovement.gd" id="1_s3y7u"]
-[ext_resource type="Script" path="res://enemies/MeleeEnemyHealth.gd" id="2_r3g14"]
+[ext_resource type="Script" uid="uid://ddoegomymose1" path="res://enemies/MeleeEnemyHealth.gd" id="2_r3g14"]
 [ext_resource type="Script" uid="uid://b16gdauwql6ti" path="res://enemies/MeleeEnemyAttack.gd" id="3_fbkaq"]
-[ext_resource type="Script" uid="uid://bv61i10fj7n0o" path="res://enemies/EnemyAnimation.gd" id="4_fbkaq"]
+[ext_resource type="Script" path="res://enemies/EnemyAnimation.gd" id="4_fbkaq"]
 [ext_resource type="Texture2D" uid="uid://bb47bbmrw7boy" path="res://enemies/images/KnightSpritesheet.png" id="4_r3g14"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x4ssu"]
@@ -149,8 +149,7 @@ position = Vector2(15.5, 0)
 shape = SubResource("RectangleShape2D_orwns")
 
 [node name="StopRaycast" type="RayCast2D" parent="." unique_id=2065336458]
-position = Vector2(11, 0)
-target_position = Vector2(10, 0)
+target_position = Vector2(16, 0)
 collision_mask = 32
 collide_with_areas = true
 collide_with_bodies = false

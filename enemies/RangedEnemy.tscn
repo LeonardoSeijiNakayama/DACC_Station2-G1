@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://64flopt8uw3k"]
 
 [ext_resource type="Script" uid="uid://cb1ssb3cmnis5" path="res://enemies/RangedEnemyMovement.gd" id="1_wfq8h"]
-[ext_resource type="Script" path="res://enemies/MeleeEnemyHealth.gd" id="2_4flq2"]
+[ext_resource type="Script" uid="uid://ddoegomymose1" path="res://enemies/MeleeEnemyHealth.gd" id="2_4flq2"]
 [ext_resource type="Script" uid="uid://dg7h8bitr3e10" path="res://enemies/RangedEnemyAttack.gd" id="3_bt172"]
 [ext_resource type="Texture2D" uid="uid://dxbtdbpwjbquq" path="res://enemies/images/ArcherSpriteSheet.png" id="4_4flq2"]
-[ext_resource type="Script" uid="uid://bv61i10fj7n0o" path="res://enemies/EnemyAnimation.gd" id="4_bt172"]
+[ext_resource type="Script" path="res://enemies/EnemyAnimation.gd" id="4_bt172"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gwl4f"]
 size = Vector2(16, 16)
@@ -19,47 +19,63 @@ size = Vector2(180, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bt172"]
 atlas = ExtResource("4_4flq2")
-region = Rect2(0, 0, 24, 24)
+region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gwl4f"]
 atlas = ExtResource("4_4flq2")
-region = Rect2(24, 0, 24, 24)
+region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sktjo"]
 atlas = ExtResource("4_4flq2")
-region = Rect2(48, 0, 24, 24)
+region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u1jnr"]
 atlas = ExtResource("4_4flq2")
-region = Rect2(72, 0, 24, 24)
+region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_luknf"]
 atlas = ExtResource("4_4flq2")
-region = Rect2(96, 0, 24, 24)
+region = Rect2(128, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iq416"]
 atlas = ExtResource("4_4flq2")
-region = Rect2(120, 0, 24, 24)
+region = Rect2(160, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dowsg"]
 atlas = ExtResource("4_4flq2")
-region = Rect2(144, 0, 24, 24)
+region = Rect2(192, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dppev"]
 atlas = ExtResource("4_4flq2")
-region = Rect2(168, 0, 24, 24)
+region = Rect2(224, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1ysv7"]
 atlas = ExtResource("4_4flq2")
-region = Rect2(0, 24, 24, 24)
+region = Rect2(0, 64, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vj27w"]
 atlas = ExtResource("4_4flq2")
-region = Rect2(24, 24, 24, 24)
+region = Rect2(32, 64, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0neg6"]
 atlas = ExtResource("4_4flq2")
-region = Rect2(48, 24, 24, 24)
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_23qt4"]
+atlas = ExtResource("4_4flq2")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5iiys"]
+atlas = ExtResource("4_4flq2")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v2i72"]
+atlas = ExtResource("4_4flq2")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3e5e1"]
+atlas = ExtResource("4_4flq2")
+region = Rect2(96, 32, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_23qt4"]
 animations = [{
@@ -106,7 +122,19 @@ animations = [{
 "name": &"Idle",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_23qt4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5iiys")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v2i72")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3e5e1")
+}],
 "loop": true,
 "name": &"Walking",
 "speed": 5.0
@@ -151,8 +179,7 @@ position = Vector2(100, 0)
 shape = SubResource("RectangleShape2D_luknf")
 
 [node name="StopRaycast" type="RayCast2D" parent="." unique_id=837208364]
-position = Vector2(11, 0)
-target_position = Vector2(10, 0)
+target_position = Vector2(16, 0)
 collision_mask = 64
 collide_with_areas = true
 collide_with_bodies = false
@@ -165,12 +192,10 @@ collision_mask = 4
 shape = SubResource("RectangleShape2D_iq416")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=153202407]
-position = Vector2(7, -4.9999995)
+position = Vector2(8, -4.999999)
 scale = Vector2(1.25, 1.25)
 sprite_frames = SubResource("SpriteFrames_23qt4")
-animation = &"Attack"
-frame = 7
-frame_progress = 1.0
+animation = &"Walking"
 
 [connection signal="timeout" from="Attack/RangedAttackTimer" to="Attack" method="_on_ranged_attack_timer_timeout"]
 [connection signal="body_entered" from="AttackAreaRanged" to="Attack" method="_on_attack_area_ranged_body_entered"]

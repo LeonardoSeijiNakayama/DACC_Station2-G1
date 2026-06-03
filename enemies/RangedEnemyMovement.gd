@@ -5,6 +5,8 @@ class_name RangedEnemyMovement
 @onready var _enemy:CharacterBody2D = $".."
 @onready var _world:Node2D = _enemy.get_parent()
 @onready var _ranged_attack_area:Area2D = $"../AttackAreaRanged"
+@onready var _stop_area:Area2D = $"../RangedStopArea"
+@onready var _sprite:AnimatedSprite2D = $"../AnimatedSprite2D"
 @onready var _collision:CollisionShape2D = $"../CollisionShape2D"
 @onready var _stop_raycast:RayCast2D = $"../StopRaycast"
 
@@ -49,8 +51,13 @@ func _process(delta: float) -> void:
 	if direction:
 		if direction.x < 0:
 			_ranged_attack_area.position.x = -160.0
+			_stop_area.position.x = -100.0
+			_sprite.flip_h = true
+			_sprite.offset.x = -13.0
+			_stop_raycast.rotation_degrees = -180
 		elif direction.x > 0:
 			_ranged_attack_area.position.x = 160.0
+			_stop_area.position.x = 0.0
 
 
 func _on_ranged_stop_area_body_entered(body: Node2D) -> void:

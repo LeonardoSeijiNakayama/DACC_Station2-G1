@@ -4,6 +4,7 @@ class_name EnemyMovement
 
 @onready var _enemy:CharacterBody2D = $".."
 @onready var _world:Node2D = _enemy.get_parent()
+@onready var _sprite:AnimatedSprite2D = $"../AnimatedSprite2D"
 @onready var _melee_attack_area:Area2D = $"../AttackAreaMelee"
 @onready var _collision:CollisionShape2D = $"../CollisionShape2D"
 @onready var _stop_raycast:RayCast2D = $"../StopRaycast"
@@ -49,5 +50,8 @@ func _process(delta: float) -> void:
 	if direction:
 		if direction.x < 0:
 			_melee_attack_area.position.x = -15.5
+			_sprite.flip_h = true
+			_sprite.offset.x = -9.0
+			_stop_raycast.rotation_degrees = 180.0
 		elif direction.x > 0:
 			_melee_attack_area.position.x = 15.5
