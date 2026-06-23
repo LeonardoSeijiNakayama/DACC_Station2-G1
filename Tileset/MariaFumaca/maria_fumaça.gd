@@ -20,7 +20,6 @@ func _process(delta: float) -> void:
 	
 	position += direction * speed * delta
 	if position.x < destroy_x:
-		print("destruiu")
 		queue_free()
 
 

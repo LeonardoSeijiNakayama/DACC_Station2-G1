@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://5hxuopluy7vf"]
 
-[ext_resource type="PackedScene" path="res://enemies/ground.tscn" id="1_vergw"]
-[ext_resource type="PackedScene" uid="uid://gjqqg7du5gjf" path="res://enemies/base_test.tscn" id="3_cw4r5"]
-[ext_resource type="PackedScene" uid="uid://o0qiygv22si4" path="res://enemies/spawn_area.tscn" id="3_ovyau"]
+[ext_resource type="PackedScene" uid="uid://c0ueb5s4je6ru" path="res://enemies/ground.tscn" id="1_vergw"]
+[ext_resource type="PackedScene" uid="uid://gjqqg7du5gjf" path="res://enemies/base.tscn" id="3_cw4r5"]
+[ext_resource type="PackedScene" uid="uid://cfugqcso1fu31" path="res://enemies/spawner/spawn_area.tscn" id="3_ovyau"]
 
 [node name="EnemyTestWorld" type="Node2D" unique_id=1633374563]
 

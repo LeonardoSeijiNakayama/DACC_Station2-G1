@@ -1,0 +1,103 @@
+[gd_scene format=3 uid="uid://ts4a44mnlrs7"]
+
+[ext_resource type="Script" uid="uid://bfa3752t5t0rv" path="res://UI/menu/pause/pause_menu.gd" id="1_gj5p7"]
+[ext_resource type="Texture2D" uid="uid://c2rfpj53ko423" path="res://UI/menu/main/MenuFrame.png" id="1_nov15"]
+[ext_resource type="Texture2D" uid="uid://cbxr4ex48e16u" path="res://UI/menu/buttons/ExitBtn.png" id="3_mc44d"]
+[ext_resource type="Texture2D" uid="uid://cto3ivru40wal" path="res://UI/menu/buttons/ExitBtnPressed.png" id="4_gj5p7"]
+[ext_resource type="Texture2D" uid="uid://cfysmb0mvlu1e" path="res://UI/menu/pause/PausedLabel.png" id="5_36k83"]
+[ext_resource type="Texture2D" uid="uid://clg1vrmmc04xa" path="res://UI/menu/buttons/ExitBtnHover.png" id="5_rjb6m"]
+[ext_resource type="Texture2D" uid="uid://75ovwf686dhn" path="res://UI/menu/buttons/RestartBtn.png" id="6_04dm0"]
+[ext_resource type="Texture2D" uid="uid://diht4sp6fppqw" path="res://UI/menu/buttons/SettingsBtn.png" id="6_jtd52"]
+[ext_resource type="Texture2D" uid="uid://bhoi3sm4fnmem" path="res://UI/menu/buttons/RestartBtnPressed.png" id="7_idhon"]
+[ext_resource type="Texture2D" uid="uid://c872ii3qmf342" path="res://UI/menu/buttons/SettingsBtnPressed.png" id="7_vw8ej"]
+[ext_resource type="Texture2D" uid="uid://dp1fgvta47glv" path="res://UI/menu/buttons/SettingsBtnHover.png" id="8_gvk8j"]
+[ext_resource type="Texture2D" uid="uid://bkatmrjk13q24" path="res://UI/menu/buttons/RestartBtnHover.png" id="8_ntcl7"]
+[ext_resource type="Texture2D" uid="uid://dx0seg3ysngv2" path="res://UI/menu/buttons/PlayBtn.png" id="12_mc44d"]
+[ext_resource type="Texture2D" uid="uid://bmkrmlfnp3d0w" path="res://UI/menu/buttons/PlayBtnPressed.png" id="13_gj5p7"]
+[ext_resource type="Texture2D" uid="uid://de5xcxxbjx6lc" path="res://UI/menu/buttons/PlayBtnHover.png" id="14_rjb6m"]
+[ext_resource type="PackedScene" uid="uid://beq0eeh30ebaj" path="res://UI/menu/settings/SettingsMenu.tscn" id="16_mvg5m"]
+
+[node name="PauseMenu" type="Control" unique_id=1828596391]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1152.0
+offset_bottom = -648.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gj5p7")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1177853536]
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 180.0
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("1_nov15")
+
+[node name="PausedLabel" type="TextureRect" parent="." unique_id=40342700]
+layout_mode = 0
+offset_left = 142.0
+offset_top = 35.0
+offset_right = 242.0
+offset_bottom = 75.0
+texture = ExtResource("5_36k83")
+
+[node name="ExitBtn" type="TextureButton" parent="." unique_id=1835597694]
+layout_mode = 0
+offset_left = 267.0
+offset_top = 136.0
+offset_right = 325.0
+offset_bottom = 176.0
+scale = Vector2(1.3, 1.3)
+texture_normal = ExtResource("3_mc44d")
+texture_pressed = ExtResource("4_gj5p7")
+texture_hover = ExtResource("5_rjb6m")
+texture_focused = ExtResource("5_rjb6m")
+
+[node name="SettingsBtn" type="TextureButton" parent="." unique_id=653954461]
+layout_mode = 0
+offset_left = 192.00002
+offset_top = 136.0
+offset_right = 250.00002
+offset_bottom = 176.0
+scale = Vector2(1.3, 1.3)
+texture_normal = ExtResource("6_jtd52")
+texture_pressed = ExtResource("7_vw8ej")
+texture_hover = ExtResource("8_gvk8j")
+texture_focused = ExtResource("8_gvk8j")
+
+[node name="RestartBtn" type="TextureButton" parent="." unique_id=1465530303]
+layout_mode = 0
+offset_left = 117.00001
+offset_top = 136.0
+offset_right = 175.0
+offset_bottom = 176.0
+scale = Vector2(1.3, 1.3)
+texture_normal = ExtResource("6_04dm0")
+texture_pressed = ExtResource("7_idhon")
+texture_hover = ExtResource("8_ntcl7")
+texture_focused = ExtResource("8_ntcl7")
+
+[node name="ResumeBtn" type="TextureButton" parent="." unique_id=1632426411]
+layout_mode = 0
+offset_left = 42.000004
+offset_top = 136.00002
+offset_right = 100.0
+offset_bottom = 176.00002
+scale = Vector2(1.3, 1.3)
+texture_normal = ExtResource("12_mc44d")
+texture_pressed = ExtResource("13_gj5p7")
+texture_hover = ExtResource("14_rjb6m")
+texture_focused = ExtResource("14_rjb6m")
+
+[node name="SettingsMenu" parent="." unique_id=913473121 instance=ExtResource("16_mvg5m")]
+visible = false
+layout_mode = 1
+offset_right = 0.0
+offset_bottom = 0.0
+
+[connection signal="pressed" from="ExitBtn" to="." method="_on_exit_btn_pressed"]
+[connection signal="pressed" from="SettingsBtn" to="." method="_on_settings_btn_pressed"]
+[connection signal="pressed" from="RestartBtn" to="." method="_on_restart_btn_pressed"]
+[connection signal="pressed" from="ResumeBtn" to="." method="_on_resume_btn_pressed"]

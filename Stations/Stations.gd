@@ -33,7 +33,7 @@ func _ready() -> void:
 	stationSpr.texture = station
 	
 # Verifica se pode iniciar a producao
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if can_use and Input.is_action_just_pressed("ui_accept"): # Se apertar a tecla [Enter]
 		ore_ref.queue_free() # deleta o no do item segurado pelo player
 		player_ref.holding = false # coloca o player em estado de "nao segurando"

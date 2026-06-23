@@ -2,10 +2,39 @@
 
 [ext_resource type="Script" uid="uid://b2iuw050uu7au" path="res://Stations/Mina.gd" id="1_sjtkc"]
 [ext_resource type="Texture2D" uid="uid://b838ajr8n2jdm" path="res://Stations/placeholders/mina_carvao_ph.png" id="2_404uv"]
+[ext_resource type="Script" uid="uid://bexv82akgpcjx" path="res://Stations/area_mina.gd" id="2_vsm7f"]
 [ext_resource type="Texture2D" uid="uid://cdr34el57trl6" path="res://Stations/placeholders/enter_button_ph.png" id="3_1s17v"]
+[ext_resource type="Texture2D" uid="uid://dskxmxx1ul1h5" path="res://Stations/placeholders/mina_carvao_ph-Outlined.png" id="5_dcldf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nmsii"]
 size = Vector2(32, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pduj5"]
+atlas = ExtResource("2_404uv")
+region = Rect2(0, 0, 34, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qvenk"]
+atlas = ExtResource("5_dcldf")
+region = Rect2(0, 0, 34, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dcldf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pduj5")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qvenk")
+}],
+"loop": false,
+"name": &"outlined",
+"speed": 5.0
+}]
 
 [node name="Mina" type="Node2D" unique_id=2038531751]
 script = ExtResource("1_sjtkc")
@@ -13,13 +42,11 @@ script = ExtResource("1_sjtkc")
 [node name="Area_Mina" type="Area2D" parent="." unique_id=2101333416]
 collision_layer = 8
 collision_mask = 15
+script = ExtResource("2_vsm7f")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area_Mina" unique_id=407316958]
 position = Vector2(0, 6.5)
 shape = SubResource("RectangleShape2D_nmsii")
-
-[node name="Mina_Spr" type="Sprite2D" parent="Area_Mina" unique_id=785450030]
-texture = ExtResource("2_404uv")
 
 [node name="Botao_Spr" type="Sprite2D" parent="." unique_id=311418721]
 visible = false
@@ -38,6 +65,9 @@ offset_bottom = -8.0
 text = "Produzindo..."
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=245785584]
+sprite_frames = SubResource("SpriteFrames_dcldf")
 
 [connection signal="body_entered" from="Area_Mina" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area_Mina" to="." method="_on_area_2d_body_exited"]

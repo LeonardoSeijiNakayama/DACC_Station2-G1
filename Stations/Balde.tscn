@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://vrhlxnwimoob"]
+
+[ext_resource type="Script" uid="uid://ceef6gvtppjfn" path="res://Stations/balde.gd" id="1_0jbwd"]
+[ext_resource type="Texture2D" uid="uid://f6s0kql7s80y" path="res://Stations/placeholders/Bucket.png" id="1_l2omo"]
+[ext_resource type="Texture2D" uid="uid://cbp48i5v03kq0" path="res://Stations/placeholders/WaterBucket.png" id="2_0jbwd"]
+[ext_resource type="Texture2D" uid="uid://dyrguw1tq41t2" path="res://Stations/placeholders/Bucket-Outlined.png" id="3_tc6jg"]
+[ext_resource type="Texture2D" uid="uid://b00t65vuhbygw" path="res://Stations/placeholders/WaterBucket-Outlined.png" id="5_y7yr2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l2omo"]
+size = Vector2(16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3yeh6"]
+atlas = ExtResource("1_l2omo")
+region = Rect2(0, 0, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yna0c"]
+atlas = ExtResource("3_tc6jg")
+region = Rect2(0, 0, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ptsc1"]
+atlas = ExtResource("2_0jbwd")
+region = Rect2(0, 0, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vwhn5"]
+atlas = ExtResource("5_y7yr2")
+region = Rect2(0, 0, 18, 18)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y7yr2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3yeh6")
+}],
+"loop": false,
+"name": &"Bucket",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yna0c")
+}],
+"loop": false,
+"name": &"BucketOutlined",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ptsc1")
+}],
+"loop": false,
+"name": &"WaterBucket",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vwhn5")
+}],
+"loop": false,
+"name": &"WaterBucketOutlined",
+"speed": 5.0
+}]
+
+[node name="Balde" type="RigidBody2D" unique_id=2006463360]
+collision_layer = 8
+collision_mask = 12
+gravity_scale = 0.4
+freeze_mode = 1
+script = ExtResource("1_0jbwd")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=897385200]
+polygon = PackedVector2Array(5, 8, 8, 2, 8, -6, 4, -8, -4, -8, -8, -6, -8, 2, -5, 8)
+
+[node name="Area_Balde" type="Area2D" parent="." unique_id=856874642]
+collision_layer = 8
+collision_mask = 13
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area_Balde" unique_id=2070282855]
+shape = SubResource("RectangleShape2D_l2omo")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1420070749]
+sprite_frames = SubResource("SpriteFrames_y7yr2")
+animation = &"Bucket"

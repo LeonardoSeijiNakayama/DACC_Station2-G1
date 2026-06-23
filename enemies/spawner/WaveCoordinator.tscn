@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cf6xe7cjlyy88"]
+
+[ext_resource type="Script" uid="uid://dkt0o7isyr50g" path="res://enemies/spawner/WaveCoordinator.gd" id="1_j0vpl"]
+
+[node name="WaveCoordinator" type="Node" unique_id=1854031988]
+script = ExtResource("1_j0vpl")

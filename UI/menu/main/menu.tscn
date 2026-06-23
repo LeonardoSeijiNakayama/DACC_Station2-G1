@@ -1,0 +1,229 @@
+[gd_scene format=3 uid="uid://cn8n1qxj7p17u"]
+
+[ext_resource type="Script" uid="uid://crducejsjnoe5" path="res://UI/menu/main/menu.gd" id="1_7jt6j"]
+[ext_resource type="Texture2D" uid="uid://drvwu86kf2b5d" path="res://UI/menu/main/Background-Sheet.png" id="2_nfxps"]
+[ext_resource type="Texture2D" uid="uid://dx0seg3ysngv2" path="res://UI/menu/buttons/PlayBtn.png" id="2_rxpqy"]
+[ext_resource type="Texture2D" uid="uid://bmkrmlfnp3d0w" path="res://UI/menu/buttons/PlayBtnPressed.png" id="3_oo15n"]
+[ext_resource type="Texture2D" uid="uid://de5xcxxbjx6lc" path="res://UI/menu/buttons/PlayBtnHover.png" id="4_ijto3"]
+[ext_resource type="Texture2D" uid="uid://cbxr4ex48e16u" path="res://UI/menu/buttons/ExitBtn.png" id="5_papuc"]
+[ext_resource type="Texture2D" uid="uid://cto3ivru40wal" path="res://UI/menu/buttons/ExitBtnPressed.png" id="6_7jt6j"]
+[ext_resource type="Texture2D" uid="uid://clg1vrmmc04xa" path="res://UI/menu/buttons/ExitBtnHover.png" id="7_0poe0"]
+[ext_resource type="Texture2D" uid="uid://diht4sp6fppqw" path="res://UI/menu/buttons/SettingsBtn.png" id="9_ypmii"]
+[ext_resource type="Texture2D" uid="uid://c872ii3qmf342" path="res://UI/menu/buttons/SettingsBtnPressed.png" id="10_66jq7"]
+[ext_resource type="Texture2D" uid="uid://dp1fgvta47glv" path="res://UI/menu/buttons/SettingsBtnHover.png" id="11_kh5io"]
+[ext_resource type="PackedScene" uid="uid://beq0eeh30ebaj" path="res://UI/menu/settings/SettingsMenu.tscn" id="12_66jq7"]
+[ext_resource type="Texture2D" uid="uid://b7hfwkp3m2d6k" path="res://UI/menu/buttons/OnePlayerBtn.png" id="13_nfxps"]
+[ext_resource type="Texture2D" uid="uid://4hntadxijyxu" path="res://UI/menu/buttons/OnePlayerBtnPressed.png" id="14_t1qvr"]
+[ext_resource type="Texture2D" uid="uid://bybmfd3xmhd0u" path="res://UI/menu/buttons/OnePlayerBtnHover.png" id="15_adi6j"]
+[ext_resource type="Texture2D" uid="uid://b6fy3e3tnx2ni" path="res://UI/menu/buttons/TwoPlayersBtn.png" id="16_pi3t7"]
+[ext_resource type="Texture2D" uid="uid://clvtmmng1vpmf" path="res://UI/menu/buttons/TwoPlayersBtnPressed.png" id="17_8cqv0"]
+[ext_resource type="Texture2D" uid="uid://bxvppin8p23po" path="res://UI/menu/buttons/TwoPlayersBtnHover.png" id="18_vl0g6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t1qvr"]
+atlas = ExtResource("2_nfxps")
+region = Rect2(0, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_adi6j"]
+atlas = ExtResource("2_nfxps")
+region = Rect2(320, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pi3t7"]
+atlas = ExtResource("2_nfxps")
+region = Rect2(640, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8cqv0"]
+atlas = ExtResource("2_nfxps")
+region = Rect2(960, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vl0g6"]
+atlas = ExtResource("2_nfxps")
+region = Rect2(1280, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_twmyv"]
+atlas = ExtResource("2_nfxps")
+region = Rect2(1600, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1alnj"]
+atlas = ExtResource("2_nfxps")
+region = Rect2(1920, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_islw0"]
+atlas = ExtResource("2_nfxps")
+region = Rect2(2240, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6rw8d"]
+atlas = ExtResource("2_nfxps")
+region = Rect2(2560, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x6cxl"]
+atlas = ExtResource("2_nfxps")
+region = Rect2(2880, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hpyl8"]
+atlas = ExtResource("2_nfxps")
+region = Rect2(3200, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xs0yu"]
+atlas = ExtResource("2_nfxps")
+region = Rect2(3520, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3hofp"]
+atlas = ExtResource("2_nfxps")
+region = Rect2(3840, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ok3o4"]
+atlas = ExtResource("2_nfxps")
+region = Rect2(4160, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8t0sr"]
+atlas = ExtResource("2_nfxps")
+region = Rect2(4480, 0, 320, 180)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4nkgx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t1qvr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_adi6j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pi3t7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8cqv0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vl0g6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_twmyv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1alnj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_islw0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6rw8d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x6cxl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hpyl8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xs0yu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3hofp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ok3o4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8t0sr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Menu" type="Control" unique_id=177543608]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7jt6j")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1358706416]
+position = Vector2(160, 90)
+sprite_frames = SubResource("SpriteFrames_4nkgx")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1645036909]
+position = Vector2(160, 90)
+zoom = Vector2(3.6, 3.6)
+
+[node name="PlayBtn" type="TextureButton" parent="." unique_id=1333786157]
+layout_mode = 0
+offset_left = 131.0
+offset_top = 88.0
+offset_right = 189.0
+offset_bottom = 128.0
+texture_normal = ExtResource("2_rxpqy")
+texture_pressed = ExtResource("3_oo15n")
+texture_hover = ExtResource("4_ijto3")
+
+[node name="ExitBtn" type="TextureButton" parent="." unique_id=2047110098]
+layout_mode = 0
+offset_left = 131.0
+offset_top = 146.0
+offset_right = 189.0
+offset_bottom = 186.0
+texture_normal = ExtResource("5_papuc")
+texture_pressed = ExtResource("6_7jt6j")
+texture_hover = ExtResource("7_0poe0")
+
+[node name="SettingsBtn" type="TextureButton" parent="." unique_id=1747856592]
+layout_mode = 0
+offset_left = 131.0
+offset_top = 117.0
+offset_right = 189.0
+offset_bottom = 157.0
+texture_normal = ExtResource("9_ypmii")
+texture_pressed = ExtResource("10_66jq7")
+texture_hover = ExtResource("11_kh5io")
+
+[node name="SettingsMenu" parent="." unique_id=913473121 instance=ExtResource("12_66jq7")]
+visible = false
+layout_mode = 1
+offset_left = 64.0
+offset_top = 24.0
+offset_right = 64.0
+offset_bottom = 24.0
+scale = Vector2(0.5, 0.5)
+
+[node name="OnePlayerBtn" type="TextureButton" parent="." unique_id=1287633098]
+visible = false
+layout_mode = 0
+offset_left = 131.0
+offset_top = 88.0
+offset_right = 189.0
+offset_bottom = 128.0
+texture_normal = ExtResource("13_nfxps")
+texture_pressed = ExtResource("14_t1qvr")
+texture_hover = ExtResource("15_adi6j")
+
+[node name="TwoPlayersBtn" type="TextureButton" parent="." unique_id=538790209]
+visible = false
+layout_mode = 0
+offset_left = 131.0
+offset_top = 117.0
+offset_right = 189.0
+offset_bottom = 157.0
+texture_normal = ExtResource("16_pi3t7")
+texture_pressed = ExtResource("17_8cqv0")
+texture_hover = ExtResource("18_vl0g6")
+
+[node name="BackBtn" type="TextureButton" parent="." unique_id=191537806]
+visible = false
+layout_mode = 0
+offset_left = 131.0
+offset_top = 146.0
+offset_right = 189.0
+offset_bottom = 186.0
+texture_normal = ExtResource("5_papuc")
+texture_pressed = ExtResource("6_7jt6j")
+texture_hover = ExtResource("7_0poe0")
+
+[connection signal="pressed" from="PlayBtn" to="." method="_on_play_btn_pressed"]
+[connection signal="pressed" from="ExitBtn" to="." method="_on_exit_btn_pressed"]
+[connection signal="pressed" from="SettingsBtn" to="." method="_on_settings_btn_pressed"]
+[connection signal="pressed" from="OnePlayerBtn" to="." method="_on_one_player_btn_pressed"]
+[connection signal="pressed" from="TwoPlayersBtn" to="." method="_on_two_players_btn_pressed"]
+[connection signal="pressed" from="BackBtn" to="." method="_on_back_btn_pressed"]

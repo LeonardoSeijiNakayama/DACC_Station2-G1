@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://b8f6ln0sswk1"]
+
+[ext_resource type="Script" uid="uid://bcnmrakdm4oxs" path="res://Tileset/spawn_point.gd" id="1_hisuy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bku85"]
+size = Vector2(10, 10)
+
+[node name="SpawnPoint" type="Node2D" unique_id=1964886432]
+z_index = 5
+script = ExtResource("1_hisuy")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1302393586]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1305836821]
+shape = SubResource("RectangleShape2D_bku85")
