@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://muqsprw4a2tm"]
+
+[ext_resource type="Script" uid="uid://d3dq32vmggk6b" path="res://Stations/water_pit.gd" id="1_pwaap"]
+[ext_resource type="Texture2D" uid="uid://byme1tyk7qv3g" path="res://Stations/placeholders/WaterPit.png" id="1_whvcg"]
+[ext_resource type="Script" uid="uid://dl0k3cljwlras" path="res://Stations/area_2d_water_pit.gd" id="3_73leb"]
+[ext_resource type="Texture2D" uid="uid://xw7r8cjljjjy" path="res://Stations/placeholders/WaterPit-Outlined.png" id="3_ecckd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ecckd"]
+size = Vector2(48, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kv7ij"]
+atlas = ExtResource("1_whvcg")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ske1"]
+atlas = ExtResource("3_ecckd")
+region = Rect2(0, 0, 50, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_73leb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kv7ij")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ske1")
+}],
+"loop": false,
+"name": &"outlined",
+"speed": 5.0
+}]
+
+[node name="WaterPit" type="Node2D" unique_id=1957563737]
+script = ExtResource("1_pwaap")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1910502600]
+position = Vector2(0, 8)
+collision_layer = 8
+collision_mask = 15
+script = ExtResource("3_73leb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=608214545]
+position = Vector2(0, 6.5)
+shape = SubResource("RectangleShape2D_ecckd")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2072358658]
+sprite_frames = SubResource("SpriteFrames_73leb")

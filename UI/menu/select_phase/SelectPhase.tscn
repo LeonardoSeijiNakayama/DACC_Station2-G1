@@ -1,0 +1,135 @@
+[gd_scene format=3 uid="uid://3k6sqvtklv1w"]
+
+[ext_resource type="Script" uid="uid://hqx2hc4o82a0" path="res://UI/menu/select_phase/select_phase.gd" id="1_xs8s6"]
+[ext_resource type="Texture2D" uid="uid://4c0fyf7y6wga" path="res://UI/menu/select_phase/PhaseSelectBackground.png" id="1_yvwiu"]
+[ext_resource type="Texture2D" uid="uid://dip31dept8g3f" path="res://UI/menu/select_phase/PhaseSelectTrain-Sheet.png" id="2_xs8s6"]
+[ext_resource type="Texture2D" uid="uid://dqwcntp6i5ckv" path="res://UI/menu/select_phase/PhaseSelectControls.png" id="4_gb72m"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gb72m"]
+atlas = ExtResource("2_xs8s6")
+region = Rect2(0, 0, 35, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_64cf6"]
+atlas = ExtResource("2_xs8s6")
+region = Rect2(35, 0, 35, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dqli3"]
+atlas = ExtResource("2_xs8s6")
+region = Rect2(70, 0, 35, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qumrm"]
+atlas = ExtResource("2_xs8s6")
+region = Rect2(105, 0, 35, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sog06"]
+atlas = ExtResource("2_xs8s6")
+region = Rect2(140, 0, 35, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uibwe"]
+atlas = ExtResource("2_xs8s6")
+region = Rect2(175, 0, 35, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rrmx0"]
+atlas = ExtResource("2_xs8s6")
+region = Rect2(210, 0, 35, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f7233"]
+atlas = ExtResource("2_xs8s6")
+region = Rect2(245, 0, 35, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_802pg"]
+atlas = ExtResource("2_xs8s6")
+region = Rect2(280, 0, 35, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_csgee"]
+atlas = ExtResource("2_xs8s6")
+region = Rect2(315, 0, 35, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0mbr8"]
+atlas = ExtResource("2_xs8s6")
+region = Rect2(350, 0, 35, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ol4n5"]
+atlas = ExtResource("2_xs8s6")
+region = Rect2(385, 0, 35, 30)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wei23"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gb72m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_64cf6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dqli3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qumrm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sog06")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uibwe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rrmx0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f7233")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_802pg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_csgee")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0mbr8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ol4n5")
+}],
+"loop": true,
+"name": &"Working",
+"speed": 10.0
+}]
+
+[node name="SelectPhase" type="Control" unique_id=70223648]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xs8s6")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=425107526]
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 180.0
+texture = ExtResource("1_yvwiu")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=216989853]
+position = Vector2(66, 79)
+sprite_frames = SubResource("SpriteFrames_wei23")
+animation = &"Working"
+frame_progress = 0.5028525
+offset = Vector2(-0.5, 0)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=969880927]
+zoom = Vector2(3.6, 3.6)
+limit_left = 0
+limit_top = 0
+limit_right = 1152
+limit_bottom = 648
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=1257939368]
+layout_mode = 0
+offset_left = 136.0
+offset_top = 6.0
+offset_right = 184.0
+offset_bottom = 22.0
+texture = ExtResource("4_gb72m")

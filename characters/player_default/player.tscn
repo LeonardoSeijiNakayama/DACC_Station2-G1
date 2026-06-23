@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://cekex40d5qa86"]
+
+[ext_resource type="Script" uid="uid://dqe7e600sk0v" path="res://characters/player_default/player.gd" id="1_onrkg"]
+[ext_resource type="Script" uid="uid://ihi1h3l8bmtu" path="res://characters/player_default/movement_component.gd" id="2_hqtel"]
+[ext_resource type="Script" uid="uid://chuauvi8rsftm" path="res://characters/player_default/interaction_component.gd" id="3_sweqy"]
+[ext_resource type="Script" uid="uid://cdn8p7ifh03lk" path="res://characters/player_default/highlitgher_component.gd" id="4_2hs0m"]
+[ext_resource type="Script" uid="uid://d0yvww6yygi77" path="res://characters/player_default/animation_component.gd" id="5_sweqy"]
+[ext_resource type="Script" uid="uid://b7rkkrxmo3vk7" path="res://characters/player_default/state_component.gd" id="6_2hs0m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hqtel"]
+size = Vector2(22, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
+size = Vector2(26, 26)
+
+[node name="player" type="CharacterBody2D" unique_id=152186675]
+collision_mask = 21
+script = ExtResource("1_onrkg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1204376235]
+shape = SubResource("RectangleShape2D_hqtel")
+
+[node name="Dash_timer" type="Timer" parent="." unique_id=1512663135]
+wait_time = 0.2
+
+[node name="Area_Player" type="Area2D" parent="." unique_id=1640491886]
+collision_mask = 24
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area_Player" unique_id=1196529653]
+shape = SubResource("RectangleShape2D_onrkg")
+debug_color = Color(0.8765736, 0.00041738988, 0.8339862, 0.41960785)
+
+[node name="MovementComponent" type="Node" parent="." unique_id=1198231248]
+script = ExtResource("2_hqtel")
+
+[node name="InteractionComponent" type="Node" parent="." unique_id=2129841773]
+script = ExtResource("3_sweqy")
+
+[node name="HighlitgherComponent" type="Node" parent="." unique_id=1049207609]
+script = ExtResource("4_2hs0m")
+
+[node name="AnimationComponent" type="Node" parent="." unique_id=1458065998]
+script = ExtResource("5_sweqy")
+
+[node name="StateComponent" type="Node" parent="." unique_id=1003692970]
+script = ExtResource("6_2hs0m")
+
+[connection signal="timeout" from="Dash_timer" to="." method="_on_timer_timeout"]
+[connection signal="area_entered" from="Area_Player" to="." method="_on_area_player_area_entered"]
+[connection signal="area_exited" from="Area_Player" to="." method="_on_area_player_area_exited"]

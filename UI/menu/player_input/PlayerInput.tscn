@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://cuunrjitjmv78"]
+
+[ext_resource type="Script" uid="uid://c5x1r3xdrq1xe" path="res://UI/menu/player_input/player_input.gd" id="1_rax7r"]
+[ext_resource type="Texture2D" uid="uid://bi3xm2wfdbodw" path="res://UI/menu/player_input/PlayerInputFrame.png" id="2_akoch"]
+[ext_resource type="Texture2D" uid="uid://dk4eegmo7x4ty" path="res://UI/menu/player_input/PlayerInputKeys.png" id="3_w3qaa"]
+[ext_resource type="Texture2D" uid="uid://crf4sqgbsiwnp" path="res://UI/menu/player_input/PlayerInputChecked.png" id="4_csgnv"]
+[ext_resource type="Texture2D" uid="uid://03u4vmyj7ia8" path="res://UI/menu/player_input/PlayerInputExitKeys.png" id="5_c0nd3"]
+
+[node name="PlayerInput" type="Control" unique_id=1526768004]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rax7r")
+
+[node name="Frame" type="TextureRect" parent="." unique_id=1700157892]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_akoch")
+
+[node name="P1InputOptions" type="TextureRect" parent="." unique_id=2001557774]
+layout_mode = 0
+offset_left = 53.0
+offset_top = 90.0
+offset_right = 133.0
+offset_bottom = 103.0
+texture = ExtResource("3_w3qaa")
+stretch_mode = 2
+
+[node name="P2InputOptions" type="TextureRect" parent="." unique_id=1050859389]
+layout_mode = 0
+offset_left = 188.0
+offset_top = 90.0
+offset_right = 268.0
+offset_bottom = 103.0
+texture = ExtResource("3_w3qaa")
+stretch_mode = 2
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=372336541]
+zoom = Vector2(3.6, 3.6)
+limit_left = 0
+limit_top = 0
+limit_right = 1152
+limit_bottom = 648
+
+[node name="P1Checked" type="TextureRect" parent="." unique_id=2125116639]
+visible = false
+layout_mode = 0
+offset_left = 87.0
+offset_top = 87.0
+offset_right = 103.0
+offset_bottom = 103.0
+texture = ExtResource("4_csgnv")
+stretch_mode = 2
+
+[node name="P2Checked" type="TextureRect" parent="." unique_id=461601874]
+visible = false
+layout_mode = 0
+offset_left = 221.0
+offset_top = 87.0
+offset_right = 237.0
+offset_bottom = 103.0
+texture = ExtResource("4_csgnv")
+stretch_mode = 2
+
+[node name="NextSceneTimer" type="Timer" parent="." unique_id=602978293]
+wait_time = 5.0
+
+[node name="PInputExitKeys" type="TextureRect" parent="." unique_id=390214235]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 151.0
+offset_right = 112.0
+offset_bottom = 164.0
+texture = ExtResource("5_c0nd3")
+stretch_mode = 2
+
+[connection signal="timeout" from="NextSceneTimer" to="." method="_on_next_scene_timer_timeout"]

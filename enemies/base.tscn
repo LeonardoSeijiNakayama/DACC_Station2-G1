@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://gjqqg7du5gjf"]
+
+[ext_resource type="Script" uid="uid://blnixpf068ft7" path="res://enemies/BaseHealth.gd" id="1_3qi3o"]
+[ext_resource type="Script" uid="uid://cilulflqssa63" path="res://enemies/base.gd" id="1_kjwqk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3qi3o"]
+size = Vector2(16, 32)
+
+[node name="Base" type="StaticBody2D" unique_id=1106712333 groups=["Base"]]
+script = ExtResource("1_kjwqk")
+
+[node name="Health" type="Node" parent="." unique_id=665081063]
+script = ExtResource("1_3qi3o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2012724205]
+shape = SubResource("RectangleShape2D_3qi3o")

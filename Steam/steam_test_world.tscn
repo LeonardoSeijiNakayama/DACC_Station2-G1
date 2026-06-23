@@ -1,0 +1,57 @@
+[gd_scene format=4 uid="uid://dbuyjfwo472so"]
+
+[ext_resource type="PackedScene" uid="uid://c1yax5fk6aq0e" path="res://Steam/Valve/steam_valve.tscn" id="1_5t3jk"]
+[ext_resource type="Texture2D" uid="uid://breoh02m5oo4e" path="res://Steam/Pipes/SteamPipes-Sheet.png" id="1_5y1im"]
+[ext_resource type="PackedScene" uid="uid://1tff6fkmbbeg" path="res://Steam/Gun/steam_gun.tscn" id="3_7u72g"]
+[ext_resource type="PackedScene" uid="uid://cbnhblfcc8gvi" path="res://Steam/Boiler/boiler.tscn" id="4_ts7hx"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7u72g"]
+texture = ExtResource("1_5y1im")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+10:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_ts7hx"]
+sources/0 = SubResource("TileSetAtlasSource_7u72g")
+
+[node name="SteamTestWorld" type="Node2D" unique_id=49376180]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=861921203]
+tile_map_data = PackedByteArray("AAAIAAcAAAABAAAAAAAJAAcAAAABAAAAAAAKAAcAAAABAAAAAAALAAcAAAAKAAAAAAAMAAcAAAABAAAAAAANAAcAAAABAAAAAAAOAAcAAAABAAAAAAAPAAcAAAABAAAAAAAQAAcAAAABAAAAAAARAAcAAAAGAAAAAAARAAYAAAAEAAAAAAARAAUAAAAEAAAAAAARAAQAAAAEAAAAAAARAAMAAAAIAAAAAAASAAMAAAABAAAAAAATAAMAAAABAAAAAAAUAAMAAAABAAAAAAAVAAMAAAABAAAAAAAHAAcAAAABAAAAAAAGAAcAAAAJAAAAAAAGAAYAAAAEAAAAAAAGAAUAAAAEAAAAAAAGAAQAAAAEAAAAAAAGAAMAAAAHAAAAAAAFAAMAAAABAAAAAAAEAAMAAAABAAAAAAADAAMAAAABAAAAAAACAAMAAAABAAAAAAABAAMAAAABAAAAAAAAAAMAAAABAAAAAAALAAYAAAAFAAAAAAALAAgAAAAEAAAAAAALAAkAAAAEAAAAAAALAAoAAAAJAAAAAAAMAAoAAAABAAAAAAANAAoAAAAHAAAAAAA=")
+tile_set = SubResource("TileSet_ts7hx")
+
+[node name="SteamValve" parent="." unique_id=716328884 instance=ExtResource("1_5t3jk")]
+position = Vector2(152, 120)
+id = 2
+id_destination = Array[int]([3])
+
+[node name="SteamValve2" parent="." unique_id=2025825384 instance=ExtResource("1_5t3jk")]
+position = Vector2(184, 152)
+capacity = 100.0
+id = 1
+id_destination = Array[int]([2])
+
+[node name="SteamGun" parent="." unique_id=1747205880 instance=ExtResource("3_7u72g")]
+position = Vector2(0, 54)
+id = 3
+capacity = 100.0
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1923834303]
+zoom = Vector2(2.5, 2.5)
+limit_left = -52
+limit_top = 0
+limit_right = 1100
+limit_bottom = 648
+
+[node name="Boiler" parent="." unique_id=1042986554 instance=ExtResource("4_ts7hx")]
+position = Vector2(252, 160)
+coal_capacity = 100.0
+id_destination = Array[int]([1])
