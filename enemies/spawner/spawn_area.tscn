@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://cfugqcso1fu31"]
+
+[ext_resource type="Script" uid="uid://kvpris0cuand" path="res://enemies/spawner/SpawnArea.gd" id="1_7wuls"]
+[ext_resource type="Script" uid="uid://bcydr71mfewob" path="res://enemies/spawner/SpawnEnemies.gd" id="1_tt2dt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3wmkr"]
+size = Vector2(1, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7wuls"]
+size = Vector2(1, 1)
+
+[node name="EnemySpawnArea" type="Area2D" unique_id=283799282]
+script = ExtResource("1_7wuls")
+
+[node name="SpawnEnemies" type="Node" parent="." unique_id=288021336]
+script = ExtResource("1_tt2dt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2045542664]
+shape = SubResource("RectangleShape2D_3wmkr")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=1539546269]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_7wuls")

@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://tw85x5ksy63o"]
+
+[ext_resource type="PackedScene" uid="uid://cekex40d5qa86" path="res://characters/player_default/player.tscn" id="1_cdtwq"]
+[ext_resource type="PackedScene" uid="uid://so2pvefgusq2" path="res://UI/menu/GUI/UI_Gui.tscn" id="1_g0ftp"]
+[ext_resource type="PackedScene" uid="uid://duep6t45g3ar7" path="res://Stations/Station.tscn" id="2_m4ubm"]
+[ext_resource type="PackedScene" uid="uid://gjqqg7du5gjf" path="res://enemies/base.tscn" id="4_g0ftp"]
+[ext_resource type="PackedScene" uid="uid://cfugqcso1fu31" path="res://enemies/spawner/spawn_area.tscn" id="4_m4ubm"]
+[ext_resource type="PackedScene" uid="uid://c17lqs7k4fdnm" path="res://Stations/Carvao_Minerio.tscn" id="6_0gi6r"]
+[ext_resource type="PackedScene" uid="uid://cbnhblfcc8gvi" path="res://Steam/Boiler/boiler.tscn" id="7_750d1"]
+[ext_resource type="PackedScene" uid="uid://1tff6fkmbbeg" path="res://Steam/Gun/steam_gun.tscn" id="8_s4bgo"]
+[ext_resource type="PackedScene" uid="uid://c1yax5fk6aq0e" path="res://Steam/Valve/steam_valve.tscn" id="9_dx87l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cdtwq"]
+size = Vector2(1256, 21)
+
+[node name="UiTestScene" type="Node2D" unique_id=1535464780]
+
+[node name="UiGui" parent="." unique_id=2085377479 instance=ExtResource("1_g0ftp")]
+
+[node name="player" parent="." unique_id=152186675 instance=ExtResource("1_cdtwq")]
+position = Vector2(541, 493)
+
+[node name="Station" parent="." unique_id=999989629 instance=ExtResource("2_m4ubm")]
+position = Vector2(728, 535)
+
+[node name="ground" type="StaticBody2D" parent="." unique_id=1989773720]
+position = Vector2(227, 559)
+collision_layer = 9
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ground" unique_id=1534352845]
+position = Vector2(324, 0.5)
+shape = SubResource("RectangleShape2D_cdtwq")
+
+[node name="Base1" parent="." unique_id=1106712333 instance=ExtResource("4_g0ftp")]
+position = Vector2(306, 524)
+
+[node name="Base2" parent="." unique_id=1683160541 instance=ExtResource("4_g0ftp")]
+position = Vector2(778, 523)
+
+[node name="SpawnArea2" parent="." unique_id=1474680840 instance=ExtResource("4_m4ubm")]
+position = Vector2(1172, 534)
+target = "Base2"
+
+[node name="SpawnArea" parent="." unique_id=283799282 instance=ExtResource("4_m4ubm")]
+position = Vector2(17, 531)
+
+[node name="Carvao" parent="." unique_id=1416427649 instance=ExtResource("6_0gi6r")]
+position = Vector2(422, 529)
+
+[node name="SteamGun" parent="." unique_id=1747205880 instance=ExtResource("8_s4bgo")]
+position = Vector2(297, 516)
+id = 2
+
+[node name="SteamValve" parent="." unique_id=716328884 instance=ExtResource("9_dx87l")]
+position = Vector2(421, 509)
+id = 1
+id_destination = Array[int]([2])
+
+[node name="Boiler" parent="." unique_id=1042986554 instance=ExtResource("7_750d1")]
+position = Vector2(485, 528)
+capacity = 100.0
+coal_capacity = 100.0
+water_capacity = 100.0
+id_destination = Array[int]([1])
+
+[node name="Carvao2" parent="." unique_id=1201579127 instance=ExtResource("6_0gi6r")]
+position = Vector2(602, 489)

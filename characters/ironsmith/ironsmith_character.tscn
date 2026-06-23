@@ -1,0 +1,143 @@
+[gd_scene format=3 uid="uid://dorlapc1w82vq"]
+
+[ext_resource type="Script" uid="uid://dya1npsb01def" path="res://characters/player_default/character.gd" id="1_k6v2g"]
+[ext_resource type="PackedScene" uid="uid://cekex40d5qa86" path="res://characters/player_default/player.tscn" id="1_lp1ua"]
+[ext_resource type="Texture2D" uid="uid://0o5s8olgs33x" path="res://characters/ironsmith/Ironsmith - Sheet.png" id="2_0fm12"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0fm12"]
+atlas = ExtResource("2_0fm12")
+region = Rect2(0, 96, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k6v2g"]
+atlas = ExtResource("2_0fm12")
+region = Rect2(24, 96, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0p0mb"]
+atlas = ExtResource("2_0fm12")
+region = Rect2(48, 96, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_olbo0"]
+atlas = ExtResource("2_0fm12")
+region = Rect2(0, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g52ku"]
+atlas = ExtResource("2_0fm12")
+region = Rect2(24, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8qtnf"]
+atlas = ExtResource("2_0fm12")
+region = Rect2(48, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tsmf0"]
+atlas = ExtResource("2_0fm12")
+region = Rect2(72, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xjeqn"]
+atlas = ExtResource("2_0fm12")
+region = Rect2(0, 72, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dgqfi"]
+atlas = ExtResource("2_0fm12")
+region = Rect2(24, 72, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ri3xf"]
+atlas = ExtResource("2_0fm12")
+region = Rect2(48, 72, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jql87"]
+atlas = ExtResource("2_0fm12")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sfugk"]
+atlas = ExtResource("2_0fm12")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_374l4"]
+atlas = ExtResource("2_0fm12")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gtlfj"]
+atlas = ExtResource("2_0fm12")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0ej6w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0fm12")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k6v2g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0p0mb")
+}],
+"loop": true,
+"name": &"HoldingIdle",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_olbo0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g52ku")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8qtnf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tsmf0")
+}],
+"loop": true,
+"name": &"HoldingWalking",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xjeqn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dgqfi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ri3xf")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jql87")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sfugk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_374l4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gtlfj")
+}],
+"loop": true,
+"name": &"Walking",
+"speed": 5.0
+}]
+
+[node name="IronsmithCharacter" type="Node2D" unique_id=291089298]
+z_index = 5
+script = ExtResource("1_k6v2g")
+
+[node name="player" parent="." unique_id=152186675 instance=ExtResource("1_lp1ua")]
+texture_filter = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="player" unique_id=1805334252]
+position = Vector2(0, -0.99999994)
+scale = Vector2(1.6, 1.6)
+sprite_frames = SubResource("SpriteFrames_0ej6w")
+animation = &"HoldingIdle"
+offset = Vector2(0, -3.25)
+
+[node name="ItemPosition" type="Node2D" parent="player" unique_id=2073727017]
+position = Vector2(0, -31)
