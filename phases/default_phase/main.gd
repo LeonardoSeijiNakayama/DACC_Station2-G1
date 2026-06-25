@@ -27,10 +27,9 @@ func _process(_delta: float) -> void:
 
 func toggle_pause() -> void:
 	get_tree().paused = !get_tree().paused
-	if get_tree().paused:
-		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	else:
-		Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 	pause_menu.visible = get_tree().paused
-	if GameSession.using_controller:
-		resume_btn.grab_focus()
+	resume_btn.grab_focus()
+
+
+func release_any_button_focus()->void:
+	get_viewport().gui_release_focus()

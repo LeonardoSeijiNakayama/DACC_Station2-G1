@@ -12,6 +12,8 @@ func _ready() -> void:
 	setup_navigation()
 
 
+
+
 func setup_buttons_visual() -> void:
 	setup_button_focus_visual(exit_btn)
 
@@ -28,15 +30,15 @@ func setup_button_focus_visual(button: TextureButton) -> void:
 	button.focus_entered.connect(func():
 		button.texture_normal = hover_texture
 	)
-
+	
 	button.focus_exited.connect(func():
 		button.texture_normal = normal_texture
 	)
-
+	
 	button.button_down.connect(func():
 		button.texture_normal = normal_texture
 	)
-
+	
 	button.button_up.connect(func():
 		if button.has_focus():
 			button.texture_normal = hover_texture
@@ -68,5 +70,4 @@ func setup_navigation() -> void:
 
 func _on_exit_btn_pressed() -> void:
 	visible = false
-	if GameSession.using_controller:
-		get_parent().get_node("SettingsBtn").grab_focus()
+	get_parent().get_node("SettingsBtn").grab_focus()
