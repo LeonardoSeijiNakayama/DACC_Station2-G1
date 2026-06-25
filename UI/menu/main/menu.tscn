@@ -129,7 +129,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 6.0
 }]
 
 [node name="Menu" type="Control" unique_id=177543608]
@@ -144,6 +144,7 @@ script = ExtResource("1_7jt6j")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1358706416]
 position = Vector2(160, 90)
 sprite_frames = SubResource("SpriteFrames_4nkgx")
+frame_progress = 0.6646769
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1645036909]
 position = Vector2(160, 90)

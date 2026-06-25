@@ -13,6 +13,7 @@ func _ready() -> void:
 	world.process_mode = Node.PROCESS_MODE_PAUSABLE
 	pause_menu.process_mode = Node.PROCESS_MODE_ALWAYS
 	train_timer.process_mode = Node.PROCESS_MODE_PAUSABLE
+	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 	
 	pause_menu.visible = false
 
@@ -26,5 +27,10 @@ func _process(_delta: float) -> void:
 
 func toggle_pause() -> void:
 	get_tree().paused = !get_tree().paused
+	if get_tree().paused:
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	else:
+		Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 	pause_menu.visible = get_tree().paused
-	resume_btn.grab_focus()
+	if GameSession.using_controller:
+		resume_btn.grab_focus()

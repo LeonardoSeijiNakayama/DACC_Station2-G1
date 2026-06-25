@@ -17,6 +17,11 @@ extends Control
 
 func _ready() -> void:
 	animation.play("default")
+	
+	Input.joy_connection_changed.connect(_on_joy_connection_changed)
+	
+	update_mouse_visibility()
+	
 	setup_buttons_visual()
 	setup_buttons_focus()
 	setup_main_menu_navigation()
@@ -24,7 +29,31 @@ func _ready() -> void:
 	
 	show_main_menu()
 	
-	play_btn.grab_focus()
+	if GameSession.using_controller:
+		play_btn.grab_focus()
+
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventJoypadButton or event is InputEventJoypadMotion:
+		GameSession.using_controller = true
+		Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
+	
+	elif event is InputEventMouseMotion or event is InputEventMouseButton:
+		GameSession.using_controller = false
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+
+
+func update_mouse_visibility() -> void:
+	if Input.get_connected_joypads().size() > 0:
+		GameSession.using_controller = true
+		Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
+	else:
+		GameSession.using_controller = false
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+
+
+func _on_joy_connection_changed(_device: int, _connected: bool) -> void:
+	update_mouse_visibility()
 
 
 func setup_buttons_visual() -> void:
@@ -146,12 +175,14 @@ func _on_exit_btn_pressed() -> void:
 
 func _on_play_btn_pressed() -> void:
 	show_player_menu()
-	one_player_btn.grab_focus()
+	if GameSession.using_controller:
+		one_player_btn.grab_focus()
 
 
 func _on_settings_btn_pressed() -> void:
 	settings_menu.visible = true
-	settings_exit_btn.grab_focus()
+	if GameSession.using_controller:
+		settings_exit_btn.grab_focus()
 
 
 func _on_one_player_btn_pressed() -> void:
@@ -166,4 +197,5 @@ func _on_two_players_btn_pressed() -> void:
 
 func _on_back_btn_pressed() -> void:
 	show_main_menu()
-	play_btn.grab_focus()
+	if GameSession.using_controller:
+		play_btn.grab_focus()

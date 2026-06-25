@@ -71,10 +71,10 @@ wait_time = 5.0
 
 [node name="PInputExitKeys" type="TextureRect" parent="." unique_id=390214235]
 layout_mode = 0
-offset_left = 16.0
-offset_top = 151.0
-offset_right = 112.0
-offset_bottom = 164.0
+offset_left = 113.0
+offset_top = 143.0
+offset_right = 209.0
+offset_bottom = 156.0
 texture = ExtResource("5_c0nd3")
 stretch_mode = 2
 

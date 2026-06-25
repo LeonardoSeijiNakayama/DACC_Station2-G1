@@ -95,12 +95,14 @@ func setup_navigation() -> void:
 func open_pause_menu() -> void:
 	get_tree().paused = true
 	visible = true
-	resume_btn.grab_focus()
+	if GameSession.using_controller:
+		resume_btn.grab_focus()
 
 
 func close_pause_menu() -> void:
 	get_tree().paused = false
 	visible = false
+	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 
 
 func _on_exit_btn_pressed() -> void:
@@ -110,7 +112,8 @@ func _on_exit_btn_pressed() -> void:
 
 func _on_settings_btn_pressed() -> void:
 	settings_menu.visible = true
-	settings_exit_btn.grab_focus()
+	if GameSession.using_controller:
+		settings_exit_btn.grab_focus()
 
 
 func _on_restart_btn_pressed() -> void:

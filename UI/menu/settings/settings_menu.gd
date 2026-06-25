@@ -68,4 +68,5 @@ func setup_navigation() -> void:
 
 func _on_exit_btn_pressed() -> void:
 	visible = false
-	get_parent().get_node("SettingsBtn").grab_focus()
+	if GameSession.using_controller:
+		get_parent().get_node("SettingsBtn").grab_focus()
