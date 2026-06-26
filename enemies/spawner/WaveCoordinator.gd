@@ -65,7 +65,7 @@ func start_current_wave() -> void:
 		spawner.start_wave(current_wave_index)
 
 
-func _on_spawner_wave_finished(wave_number: int, spawner: EnemySpawner) -> void:
+func _on_spawner_wave_finished(_wave_number: int, spawner: EnemySpawner) -> void:
 	if spawner in finished_spawners:
 		return
 	

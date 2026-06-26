@@ -2,6 +2,7 @@ extends Node
 
 var players: Array[Dictionary] = []
 
+
 func reset_players() -> void:
 	players.clear()
 
