@@ -9,6 +9,7 @@ class_name EnemyMovement
 @onready var _collision:CollisionShape2D = $"../CollisionShape2D"
 @onready var _stop_raycast:RayCast2D = $"../StopRaycast"
 
+var wing_animation:AnimatedSprite2D = null
 var base:StaticBody2D = null
 var target = "Base"
 var stopped_raycast = false
@@ -20,6 +21,7 @@ const SPEED = 15.0
 func _ready() -> void:
 	base = _world.get_node(target)
 	_collision.disabled = true
+	wing_animation = get_parent().get_node_or_null("AuxiliarSprite")
 	pass
 
 
@@ -42,9 +44,12 @@ func _process(_delta: float) -> void:
 	
 	if direction:
 		if direction.x < 0:
-			_melee_attack_area.position.x = -13.0
+			_melee_attack_area.position.x = -18.0
 			_sprite.flip_h = true
-			_sprite.offset.x = -9.0
+			_sprite.offset.x = -1.7
+			if wing_animation:
+				wing_animation.flip_h = true
+				wing_animation.offset.x = 5.3
 			_stop_raycast.rotation_degrees = 180.0
 		elif direction.x > 0:
-			_melee_attack_area.position.x = 13.0
+			_melee_attack_area.position.x = 18.0

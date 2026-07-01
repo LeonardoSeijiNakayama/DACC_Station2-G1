@@ -197,10 +197,12 @@ sources/1 = SubResource("TileSetAtlasSource_maxxw")
 
 [sub_resource type="Resource" id="Resource_dhh6c"]
 script = ExtResource("27_banud")
+spawn_interval = 1.5
 metadata/_custom_type_script = "uid://btueq2573qeo8"
 
 [sub_resource type="Resource" id="Resource_kh5wh"]
 script = ExtResource("27_banud")
+spawn_interval = 1.5
 metadata/_custom_type_script = "uid://btueq2573qeo8"
 
 [node name="Phase1" type="Node2D" unique_id=95952879]
