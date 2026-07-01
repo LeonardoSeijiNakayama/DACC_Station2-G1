@@ -16,11 +16,16 @@ var stopped_raycast = false
 var stopped_area = false
 var stopped = false
 
+var auxiliarSprite:AnimatedSprite2D = null
+var auxiliarSprite2:AnimatedSprite2D = null
+
 const SPEED = 10.0
 
 func _ready() -> void:
 	base = _world.get_node(target)
 	_collision.disabled = true
+	auxiliarSprite = get_parent().get_node_or_null("AuxiliarSprite")
+	auxiliarSprite2 = get_parent().get_node_or_null("AuxiliarSprite2")
 	pass
 
 
@@ -47,8 +52,13 @@ func _process(_delta: float) -> void:
 			_ranged_attack_area.position.x = -40.0
 			_stop_area.position.x = -40.0
 			_sprite.flip_h = true
-			_sprite.offset.x = -13.0
 			_stop_raycast.rotation_degrees = -180
+			if auxiliarSprite != null:
+				auxiliarSprite.flip_h = true
+				auxiliarSprite.offset.x = -14.0
+			if auxiliarSprite2 != null:
+				auxiliarSprite2.flip_h = true
+				auxiliarSprite2.offset.x = 20.0
 		elif direction.x > 0:
 			_ranged_attack_area.position.x = 40.0
 			_stop_area.position.x = 40.0
