@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://hqx2hc4o82a0" path="res://UI/menu/select_phase/select_phase.gd" id="1_xs8s6"]
 [ext_resource type="Texture2D" uid="uid://4c0fyf7y6wga" path="res://UI/menu/select_phase/PhaseSelectBackground.png" id="1_yvwiu"]
 [ext_resource type="Texture2D" uid="uid://dip31dept8g3f" path="res://UI/menu/select_phase/PhaseSelectTrain-Sheet.png" id="2_xs8s6"]
-[ext_resource type="Texture2D" uid="uid://dqwcntp6i5ckv" path="res://UI/menu/select_phase/PhaseSelectControls.png" id="4_gb72m"]
+[ext_resource type="Texture2D" uid="uid://dk4eegmo7x4ty" path="res://UI/menu/player_input/PlayerInputKeys.png" id="4_gb72m"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gb72m"]
 atlas = ExtResource("2_xs8s6")
@@ -128,8 +128,8 @@ limit_bottom = 648
 
 [node name="TextureRect2" type="TextureRect" parent="." unique_id=1257939368]
 layout_mode = 0
-offset_left = 136.0
-offset_top = 6.0
-offset_right = 184.0
-offset_bottom = 22.0
+offset_left = 120.0
+offset_top = 148.0
+offset_right = 200.0
+offset_bottom = 164.0
 texture = ExtResource("4_gb72m")

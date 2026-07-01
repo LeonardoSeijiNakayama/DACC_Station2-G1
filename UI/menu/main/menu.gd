@@ -12,23 +12,17 @@ extends Control
 @onready var two_players_btn: TextureButton = $TwoPlayersBtn
 @onready var back_btn: TextureButton = $BackBtn
 
-@onready var animation:AnimatedSprite2D = $AnimatedSprite2D
+@onready var animation: AnimatedSprite2D = $AnimatedSprite2D
+
+var buttons: Array[TextureButton] = []
 
 
 func _ready() -> void:
 	animation.play("default")
-	setup_buttons_visual()
-	setup_buttons_focus()
-	setup_main_menu_navigation()
-	setup_player_menu_navigation()
 	
-	show_main_menu()
+	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 	
-	play_btn.grab_focus()
-
-
-func setup_buttons_visual() -> void:
-	var buttons := [
+	buttons = [
 		play_btn,
 		settings_btn,
 		exit_btn,
@@ -38,6 +32,26 @@ func setup_buttons_visual() -> void:
 		settings_exit_btn
 	]
 	
+	disable_mouse_for_all_controls(self)
+	
+	setup_buttons_visual()
+	setup_buttons_focus()
+	setup_main_menu_navigation()
+	setup_player_menu_navigation()
+	
+	show_main_menu()
+	play_btn.grab_focus()
+
+
+func disable_mouse_for_all_controls(node: Node) -> void:
+	if node is Control:
+		node.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	
+	for child in node.get_children():
+		disable_mouse_for_all_controls(child)
+
+
+func setup_buttons_visual() -> void:
 	for button in buttons:
 		setup_button_focus_visual(button)
 
@@ -72,16 +86,6 @@ func setup_button_focus_visual(button: TextureButton) -> void:
 
 
 func setup_buttons_focus() -> void:
-	var buttons := [
-		play_btn,
-		settings_btn,
-		exit_btn,
-		one_player_btn,
-		two_players_btn,
-		back_btn,
-		settings_exit_btn
-	]
-	
 	for button in buttons:
 		button.focus_mode = Control.FOCUS_ALL
 
@@ -121,20 +125,24 @@ func setup_player_menu_navigation() -> void:
 
 
 func show_main_menu() -> void:
+	settings_menu.visible = false
+
 	play_btn.visible = true
 	settings_btn.visible = true
 	exit_btn.visible = true
-	
+
 	one_player_btn.visible = false
 	two_players_btn.visible = false
 	back_btn.visible = false
 
 
 func show_player_menu() -> void:
+	settings_menu.visible = false
+
 	play_btn.visible = false
 	settings_btn.visible = false
 	exit_btn.visible = false
-	
+
 	one_player_btn.visible = true
 	two_players_btn.visible = true
 	back_btn.visible = true

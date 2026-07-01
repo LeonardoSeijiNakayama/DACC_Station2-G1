@@ -10,15 +10,16 @@ class_name PauseMenu
 
 @onready var settings_exit_btn: TextureButton = $SettingsMenu.get_node("ExitBtn")
 
+var buttons: Array[TextureButton] = []
+
 
 func _ready() -> void:
-	setup_buttons_visual()
-	setup_focus()
-	setup_navigation()
-
-
-func setup_buttons_visual() -> void:
-	var buttons := [
+	process_mode = Node.PROCESS_MODE_ALWAYS
+	settings_menu.process_mode = Node.PROCESS_MODE_ALWAYS
+	
+	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
+	
+	buttons = [
 		resume_btn,
 		restart_btn,
 		settings_btn,
@@ -26,6 +27,31 @@ func setup_buttons_visual() -> void:
 		settings_exit_btn
 	]
 	
+	disable_mouse_for_all_controls(self)
+	setup_process_mode()
+	setup_buttons_visual()
+	setup_focus()
+	setup_navigation()
+	
+	settings_menu.visible = false
+
+
+func disable_mouse_for_all_controls(node: Node) -> void:
+	if node is Control:
+		node.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	
+	for child in node.get_children():
+		disable_mouse_for_all_controls(child)
+
+
+func setup_process_mode() -> void:
+	process_mode = Node.PROCESS_MODE_ALWAYS
+	
+	for button in buttons:
+		button.process_mode = Node.PROCESS_MODE_ALWAYS
+
+
+func setup_buttons_visual() -> void:
 	for button in buttons:
 		setup_button_focus_visual(button)
 
@@ -60,32 +86,26 @@ func setup_button_focus_visual(button: TextureButton) -> void:
 
 
 func setup_focus() -> void:
-	exit_btn.focus_mode = Control.FOCUS_ALL
-	settings_btn.focus_mode = Control.FOCUS_ALL
-	restart_btn.focus_mode = Control.FOCUS_ALL
-	resume_btn.focus_mode = Control.FOCUS_ALL
+	for button in buttons:
+		button.focus_mode = Control.FOCUS_ALL
 
 
 func setup_navigation() -> void:
-	# Resume
 	resume_btn.focus_neighbor_left = resume_btn.get_path()
 	resume_btn.focus_neighbor_right = restart_btn.get_path()
 	resume_btn.focus_neighbor_top = resume_btn.get_path()
 	resume_btn.focus_neighbor_bottom = resume_btn.get_path()
 	
-	# Restart
 	restart_btn.focus_neighbor_left = resume_btn.get_path()
 	restart_btn.focus_neighbor_right = settings_btn.get_path()
 	restart_btn.focus_neighbor_top = restart_btn.get_path()
 	restart_btn.focus_neighbor_bottom = restart_btn.get_path()
 	
-	# Settings
 	settings_btn.focus_neighbor_left = restart_btn.get_path()
 	settings_btn.focus_neighbor_right = exit_btn.get_path()
 	settings_btn.focus_neighbor_top = settings_btn.get_path()
 	settings_btn.focus_neighbor_bottom = settings_btn.get_path()
 	
-	# Exit
 	exit_btn.focus_neighbor_left = settings_btn.get_path()
 	exit_btn.focus_neighbor_right = exit_btn.get_path()
 	exit_btn.focus_neighbor_top = exit_btn.get_path()
@@ -95,12 +115,21 @@ func setup_navigation() -> void:
 func open_pause_menu() -> void:
 	get_tree().paused = true
 	visible = true
+	
+	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
+	
+	settings_menu.visible = false
 	resume_btn.grab_focus()
 
 
 func close_pause_menu() -> void:
 	get_tree().paused = false
 	visible = false
+	
+	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
+	
+	settings_menu.visible = false
+	get_viewport().gui_release_focus()
 
 
 func _on_exit_btn_pressed() -> void:

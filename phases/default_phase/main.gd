@@ -13,6 +13,7 @@ func _ready() -> void:
 	world.process_mode = Node.PROCESS_MODE_PAUSABLE
 	pause_menu.process_mode = Node.PROCESS_MODE_ALWAYS
 	train_timer.process_mode = Node.PROCESS_MODE_PAUSABLE
+	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 	
 	pause_menu.visible = false
 
@@ -28,3 +29,7 @@ func toggle_pause() -> void:
 	get_tree().paused = !get_tree().paused
 	pause_menu.visible = get_tree().paused
 	resume_btn.grab_focus()
+
+
+func release_any_button_focus()->void:
+	get_viewport().gui_release_focus()
