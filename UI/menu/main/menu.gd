@@ -16,7 +16,6 @@ extends Control
 
 var buttons: Array[TextureButton] = []
 
-#aaaaaaaa
 
 
 func _ready() -> void:
