@@ -56,7 +56,6 @@ func create_default_wave() -> void:
 	default_wave.spawn_interval = 0.7
 	default_wave.delay_after_wave = 3.0
 	default_wave.max_alive = 6
-
 	_spawn_area.waves.append(default_wave)
 
 
