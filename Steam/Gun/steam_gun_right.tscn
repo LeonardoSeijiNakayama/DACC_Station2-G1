@@ -595,6 +595,7 @@ animations = [{
 }]
 
 [node name="SteamGunRight" type="Node2D" unique_id=926697980]
+z_index = 8
 script = ExtResource("1_a62tc")
 
 [node name="GunSprite" type="AnimatedSprite2D" parent="." unique_id=1176113378]

@@ -500,6 +500,7 @@ animations = [{
 }]
 
 [node name="Boiler" type="Node2D" unique_id=1042986554]
+z_index = 5
 script = ExtResource("1_rxw2x")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1261706526]

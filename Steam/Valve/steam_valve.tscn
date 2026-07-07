@@ -286,6 +286,7 @@ animations = [{
 }]
 
 [node name="SteamValve" type="Node2D" unique_id=716328884]
+z_index = 8
 script = ExtResource("2_268dn")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1854035191]

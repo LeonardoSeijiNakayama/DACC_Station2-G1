@@ -4,6 +4,8 @@ class_name  MeleeEnemyAttack
 @onready var _melee_attack_timer = $MeleeAttackTimer
 @onready var _movement:EnemyMovement = $"../Movement"
 @onready var _animation:EnemyAnimation = $"../Animation"
+
+const damage = 2.5
 var base_in_range = false
 var base_ref = null
 
@@ -37,4 +39,4 @@ func attack()->void:
 	await  _animation._animation.animation_finished
 	var base_health:BaseHealth = base_ref.get_node("Health")
 	if base_health:
-		base_health.take_damage(1.0)
+		base_health.take_damage(damage)
