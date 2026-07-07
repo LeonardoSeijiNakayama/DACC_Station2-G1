@@ -12,6 +12,8 @@ var spawn_points: Array[Vector2] = []
 @onready var character2: PackedScene = preload("res://characters/buff/buff_character.tscn")
 @onready var playerSpawners:Node2D = $PlayerSpawners
 
+var total_score = 0.0
+
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_PAUSABLE
 
@@ -80,3 +82,8 @@ func spawn_players() -> void:
 func _on_base_destroyed() -> void:
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://UI/menu/main/menu.tscn")
+
+
+
+func increase_score(points:int)->void:
+	total_score += points

@@ -17,6 +17,7 @@ extends Control
 var buttons: Array[TextureButton] = []
 
 
+
 func _ready() -> void:
 	animation.play("default")
 	

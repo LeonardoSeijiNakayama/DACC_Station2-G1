@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://beq0eeh30ebaj" path="res://UI/menu/settings/SettingsMenu.tscn" id="16_mvg5m"]
 
 [node name="PauseMenu" type="Control" unique_id=1828596391]
+z_index = 10
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

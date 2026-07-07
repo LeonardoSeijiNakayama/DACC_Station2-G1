@@ -37,6 +37,7 @@ animations = [{
 }]
 
 [node name="Mina" type="Node2D" unique_id=2038531751]
+z_index = 4
 script = ExtResource("1_sjtkc")
 
 [node name="Area_Mina" type="Area2D" parent="." unique_id=2101333416]
@@ -58,6 +59,7 @@ one_shot = true
 
 [node name="Produzindo_Label" type="Label" parent="." unique_id=1809674824]
 visible = false
+z_index = 6
 offset_left = -46.0
 offset_top = -31.0
 offset_right = 56.0

@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://b7c7cmye6aa6n"]
 
 [ext_resource type="Script" uid="uid://bpxd3csfswgua" path="res://enemies/melee/melee_enemy.gd" id="1_idy18"]
-[ext_resource type="Script" uid="uid://cp457626dv20h" path="res://enemies/general_scripts/EnemyMovement.gd" id="1_s3y7u"]
-[ext_resource type="Script" uid="uid://ddoegomymose1" path="res://enemies/melee/MeleeEnemyHealth.gd" id="2_r3g14"]
+[ext_resource type="Script" uid="uid://cp457626dv20h" path="res://enemies/melee/MeleeEnemyMovement.gd" id="1_s3y7u"]
+[ext_resource type="Script" uid="uid://ddoegomymose1" path="res://enemies/general_scripts/EnemyHealth.gd" id="2_r3g14"]
 [ext_resource type="Script" uid="uid://b16gdauwql6ti" path="res://enemies/melee/MeleeEnemyAttack.gd" id="3_fbkaq"]
 [ext_resource type="Script" uid="uid://bv61i10fj7n0o" path="res://enemies/general_scripts/EnemyAnimation.gd" id="4_fbkaq"]
 [ext_resource type="Texture2D" uid="uid://blg4aeixdqof4" path="res://enemies/images/Mosquito-Sheet.png" id="5_gnvoo"]

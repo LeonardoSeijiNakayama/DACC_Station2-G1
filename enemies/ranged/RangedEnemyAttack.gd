@@ -5,6 +5,7 @@ class_name RangedEnemyAttack
 @onready var _ranged_attack_timer = $RangedAttackTimer
 @onready var _animation = $"../Animation"
 
+const damage = 1.25
 var base_ref = null
 var base_in_range = false
 
@@ -12,7 +13,7 @@ func ranged_attack()->void:
 	_animation.play_attack_animation()
 	var base_health:BaseHealth = base_ref.get_node("Health")
 	if base_health:
-		base_health.take_damage(0.5)
+		base_health.take_damage(damage)
 
 func _on_ranged_attack_timer_timeout() -> void:
 	if base_in_range and is_instance_valid(base_ref) and _movement.stopped:
