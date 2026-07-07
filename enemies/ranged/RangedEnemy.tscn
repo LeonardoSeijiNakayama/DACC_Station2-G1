@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://64flopt8uw3k"]
 
 [ext_resource type="Script" uid="uid://cb1ssb3cmnis5" path="res://enemies/ranged/RangedEnemyMovement.gd" id="1_wfq8h"]
-[ext_resource type="Script" uid="uid://ddoegomymose1" path="res://enemies/melee/MeleeEnemyHealth.gd" id="2_4flq2"]
+[ext_resource type="Script" uid="uid://ddoegomymose1" path="res://enemies/general_scripts/EnemyHealth.gd" id="2_4flq2"]
 [ext_resource type="Script" uid="uid://dg7h8bitr3e10" path="res://enemies/ranged/RangedEnemyAttack.gd" id="3_bt172"]
 [ext_resource type="Script" uid="uid://bv61i10fj7n0o" path="res://enemies/general_scripts/EnemyAnimation.gd" id="4_bt172"]
 [ext_resource type="Texture2D" uid="uid://dxbfr8lxvf4pm" path="res://enemies/images/TrashMonster-Sheet.png" id="5_c80i7"]

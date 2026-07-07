@@ -12,7 +12,7 @@ signal enemy_spawned(enemy: CharacterBody2D)
 @onready var _collision_shape_back: CollisionShape2D = $"../CollisionShape2D2"
 
 @onready var _spawn_area: SpawnArea = $".."
-@onready var _world: Node = _spawn_area.get_parent().get_parent()
+@onready var _world: World = _spawn_area.get_parent().get_parent()
 @onready var _base: Node = _world.get_node_or_null(_spawn_area.target)
 
 var active_enemies: Array[CharacterBody2D] = []
@@ -212,6 +212,7 @@ func setup_enemy(enemy: CharacterBody2D) -> void:
 	
 	if sprite != null and use_front_area_next:
 		sprite.z_index += 1
+	enemy.get_node("Health").enemy_killed.connect(_world.increase_score)
 
 
 func get_random_point_in_area() -> Vector2:

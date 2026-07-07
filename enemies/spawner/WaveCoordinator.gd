@@ -8,6 +8,7 @@ class_name WaveCoordinator
 var spawners: Array[EnemySpawner] = []
 var finished_spawners: Array[EnemySpawner] = []
 
+
 var current_wave_index := 0
 var waves_running := false
 
